@@ -40,6 +40,7 @@
 ### Установка и настройка esp-idf
 #### На Linux
 ##### esp-idf
+**Задача**: Установить *esp-idf*, *VSCode*, *Eclipse*, так, чтобы программирование из консоли, *VSCode* и *Eclipse* осуществлялись с одного дистрибутива *esp-idf*
 1. Установить git 
 ```sudo apt install git-all```, ```sudo snap install git```, ```sudo dnf install git-all``` и так далее.
 2. Проверить, установлен ли python. Обычно, если python установлен, то 3.x версия, которая вызывается командой ```python3```. Если нельзя вызвать ```python```, cделать мягкую ссылку ```ln -sf /usr/bin/python3.9 ~/.local/bin/python```
@@ -107,12 +108,11 @@ Go to the project directory and run:
     1. Переходим в каталог примеров: ```cd ~/espressif/esp-idf/examples/get-started/hello-world```
     2. Вызываем ```idf.py build```. ```idf.py``` — это инструмент управления сборкой esp32 проектов из командной строки
     3. Если всё удачно собралось, залогиниться под суперюзером: ```sudo su```
-    4. Скопировать файл ```cp ./40-dfuse.rule /etc/udev/rules.d/``` или создать файл ```cd /etc/udev/rules.d && vim 40-dfuse.rule``` и скопировать туда правила доступа для устройств
+    4. Скопировать файл ```cp ./40-dfuse.rule /etc/udev/rules.d/``` или создать файл ```cd /etc/udev/rules.d && vim 40-dfuse.rule``` и скопировать туда правила доступа для устройств файл c правилами  ```/etc/udev/rules.d/40-dfuse.rule```
     5. Перезапустить ```sudo systemctl restart udev.service```
     6. Перечитать правила: ```sudo udevadm control --reload-rules```
 
-Файл ```/etc/udev/rules.d/40-dfuse.rule```
-
+Файл ```/etc/udev/rules.d/40-dfuse```
 
 ```
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
@@ -121,7 +121,38 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 ```
 
-8. Не обязательно, но можно создать файл конфигурации переменных окружения и для создания алиаса ```idfexp``` — настройка текущего терминала для работы утилиты ```idf.py```. Проверить работу файла можно при помощи команды ```source ~/.idfrc```. Подключить автозагрузку либо в ```.profile```:
+
+8. Не обязательно, но можно создать файл конфигурации переменных окружения и для создания алиаса ```idfexp``` — настройка текущего терминала для работы утилиты ```idf.py```. Проверить работу файла можно при помощи команды ```source ~/.idfrc```. Этот скрипт создаёт переменные окружения *ESP_IDF* — путь к фреймворкам *esp-idf*, *esp-adf*, *esp-mdf* (ADF, MDF создаются, если эти фреймворки установлены)
+```
+# Скрипт ~/.idfrc для "подёма" окружения esp-idf, esp-adf, esp-mdf
+#
+ESP_PATH="$HOME/espressif"
+IDF_TOOLS_PATH="$HOME/.espressif"
+
+if [ -d "$ESP_PATH/esp-idf" ] ; then
+	IDF_PATH="$ESP_PATH/esp-idf"
+	export IDF_PATH
+	if [ -f "$IDF_PATH/export.sh" ] ; then
+		alias idfexp="\. $IDF_PATH/export.sh"
+	fi
+fi
+
+if [ -f "$ESP_PATH/esp-adf" ] ; then
+	ADF_PATH="$ESP_PATH/esp-adf"
+	export ADF_PATH
+fi
+
+if [ -f "$ESP_PATH/esp-mdf" ] ; then
+	MDF_PATH="$ESP_PATH/esp-mdf"
+	export MDF_PATH
+fi
+
+if [ -d "$IDF_TOOLS_PATH" ] ; then
+	export IDF_TOOLS_PATH
+fi
+```
+
+9. Подключить автозагрузку либо в ```.profile```:
 
 ```
 if [ -f "$HOME/.idfrc" ] ; then 
@@ -133,10 +164,47 @@ fi
 
 Или в ```.idfrc```, если у вас установлен ```zsh```
 
-```[ -s "$HOME/.zshrc" ] && \. "$HOME/.idfrc"
+```[ -s "$HOME/.zshrc" ] && \. "$HOME/.idfrc"```
 
 
 ##### VSCode
+
+1. Скачать *.tar.gz* архив *VSCode* с линка https://code.visualstudio.com/download
+2. Создать каталог *~/IDE/*, скопировать туда архив и развернуть его ```tar -zxvf code-stable-x64-xxxxxxxxxxxx.tar.gz```
+3. Создать мягкий линк ```ln -sf ~\IDE\VSCode-Linux-x64\bin\code ~\.local\bin``` именно из каталога *bin*, потому, что именно ```.../bin/code```, «отпускает» консоль после запуска.
+4. Если Вы используете среду *GNOME*, заменить *${HOME}* в *vscode.desktop* и копировать ```cp vscode.desktop ~/.local/share/applications``` или в ```/usr/share/applications```, если Вы хотите чтобы Ваш *VSCode* был бы виден глобально.
+
+
+
+```
+[Desktop Entry]
+Type=Application
+Exec="${HOME}/IDE/VSCode-linux-x64/bin/code" %F
+Name=VSCode
+GenericName=The Microsoft IDE for C/C++, Javascript, Python e.t.c. development.
+Icon=${HOME}/IDE/VSCode-linux-x64/resources/app/resources/linux/code.png
+StartupWMClass=code
+Terminal=false
+Categories=Development;IDE;C/C++;Python;Java;Java Script;Node;NodeJS
+MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;
+
+```
+
+
+
+5. Установить плагин *esp-idf* в *VSCode*
+6. Запустить ```code .``` из консоли, где был запущен скрипт ```. ~/espressif/esp-idf/export.sh```, чтобы плагин смог «подхватить» переменные окружения и узнать, где установлен фреймворк и набор инструментов с *venv* python.
+7. При помощи клавиши **F1** вызвать меню команд *VSCode* и найти **\>ESP-IDF: Настроить расширение EPS-IDF**
+8. Если появился экран с возможностью выбора 
+
+«USE EXISTING SETUP
+
+We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf and ESP-IDF tools in @ /home/grandfatherpikhto/.espressif. Click here to use them.»
+
+Всё в порядке. Выбираем «USE EXISTING SETUP»
+
+9. Если установка прошла удачно, жмём **Ctrl + E N**. Если нет, **F1 -> \>ESP-IDF: Команда врача** вставляем содержимо в новый файл ищем, что не так.
+10. Запускаем **Ctrl+E N** создание нового проекта. Выбираем шаблон приложения (например, «template-app» — Hello World).
 ##### Eclipse
 #### На Windows
 ##### esp-idf
