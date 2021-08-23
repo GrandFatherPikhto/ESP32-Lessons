@@ -1,10 +1,144 @@
-# Уроки ESP32
-1. Урок 1. Установка и настройка окружения esp-idf под Linux & Windows.
-    1. Linux
-        1. Установка среды разработки на Ubuntu 21.04 
-        2. Установка и настройка VSCode и плагина esp-idf
-        3. Установка и настройка Eclipse и плагина esp-idf
-    2. Windows 10
-        1. Установка среды разработки на Windows
-        2. Установка и настройка VSCode и плагина esp-idf
-        3. Установка и настройка Eclipse и плагина esp-idf
+# Урок 1. Установка и настройка окружения esp-idf под Linux & Windows.
+1. Espressif
+    1. DIY
+    2. Сравненение с другими процессорами 
+    3. Полезные ссылки
+2. Linux
+    1. Установка среды разработки на Ubuntu 21.04 
+    2. Установка и настройка VSCode и плагина esp-idf
+    3. Установка и настройка Eclipse и плагина esp-idf
+3. Windows 10
+    1. Установка среды разработки на Windows
+    2. Установка и настройка VSCode и плагина esp-idf
+    3. Установка и настройка Eclipse и плагина esp-idf
+
+## Espressif
+### Сравнение
+#### ESP32
+Основные причины использования ESP32
+1. 2.4 мГц
+2. WiFi
+3. Bluetooth/BLE
+4. По соотношению цена/производительность, STM гонку проигрывает. Цена на модуль от 50 руб и на макетную плату от 250 руб
+#### STM
+1. Линейка STM *гораздо* лучше документирована
+2. По производительности STM выигрывает. Так, STM32H750 работает на частоте 400 мГц
+3. Поддержка компилятора STM сделана *значительно* лучше. Так, можно использовать инструкции DSP отдельно от C-кода.
+### Полезные ссылки
+1. https://espressif.com — Основной сайт Espressif
+2. https://docs.espressif.com — Описание API esp-mdf, esp-adf, esp-idf и многого другого
+3. https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html 
+4. https://github.com/espressif/esp-idf — Espressif IoT Development Framework — IDF
+5. https://github.com/espressif/esp-mdf — ESP-WIFI-MESH Development Framework — MDF
+6. https://github.com/espressif/esp-adf — Espressif Audio Development Framework — ADF.
+7. https://github.com/espressif/esp-iot-solution Набор решений для создания IoT
+8. https://github.com/espressif/idf-eclipse-plugin Плагин для Eclipse
+9. https://github.com/espressif/vscode-esp-idf-extension Плагин для VSCode
+10. https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
+11. https://www.espressif.com/en/support/documents/technical-documents Вся техническая документация
+12. https://0x04.net/~mwk/doc/xtensa.pdf Xtensa® Instruction Set Architecture (ISA) Reference Manual
+### Установка и настройка esp-idf
+#### На Linux
+##### esp-idf
+1. Установить git 
+```sudo apt install git-all```, ```sudo snap install git```, ```sudo dnf install git-all``` и так далее.
+2. Проверить, установлен ли python. Обычно, если python установлен, то 3.x версия, которая вызывается командой ```python3```. Если нельзя вызвать ```python```, cделать мягкую ссылку ```ln -sf /usr/bin/python3.9 ~/.local/bin/python```
+3. Создать каталог *~/espressif*, 
+
+```mkdir ~/espressif```
+
+перейти в него и скачать репозиторий *esp-idf*: 
+
+```git clone https://github.com/espressif/esp-idf.git --recursive```
+
+4. Перейти в каталог *~/espressif/esp-idf*:
+
+```cd ~/espressif/esp-idf```
+
+и запустить установку набора инструментов -- tollchain
+
+```./install.sh```
+
+Если всё правильно установлено, начнётся скачивание инструментария.
+
+5. После завершения скачивания, запустить настройку программного окружения (для каждого открытого терминала запускается отдельно)
+
+```. ./export.hs```
+
+Точка перед путём к скрипту ```export.sh``` стоит, потому, что разрешения на него из соображений безопасности установлены в *0644*, следовательно, его надо вызывать, как source, а не как исполняемый скрипт. Например, ```. ./export.hs``` или ```source ./export.sh```
+
+6. Если видим что-то вроде 
+
+```
+Detecting the Python interpreter
+Checking "python" ...
+Python 3.9.5
+"python" has been detected
+Adding ESP-IDF tools to PATH...
+Not using an unsupported version of tool cmake found in PATH: 3.21.1.
+Not using an unsupported version of tool ninja found in PATH: 1.10.1.
+Using Python interpreter in ~/.espressif/python_env/idf4.4_py3.9_env/bin/python
+Checking if Python packages are up to date...
+Python requirements from ~/espressif/esp-idf/requirements.txt are satisfied.
+Added the following directories to PATH:
+  ~/espressif/esp-idf/components/esptool_py/esptool
+  ~/espressif/esp-idf/components/espcoredump
+  ~/espressif/esp-idf/components/partition_table
+  ~/espressif/esp-idf/components/app_update
+  ~/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin
+  ~/.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0/xtensa-esp32s2-elf/bin
+  ~/.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0/xtensa-esp32s3-elf/bin
+  ~/.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0/riscv32-esp-elf/bin
+  ~/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin
+  ~/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin
+  ~/.espressif/tools/cmake/3.20.3/bin
+  ~/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721/openocd-esp32/bin
+  ~/.espressif/tools/ninja/1.10.2/
+  ~/.espressif/python_env/idf4.4_py3.9_env/bin
+  ~/espressif/esp-idf/tools
+Done! You can now compile ESP-IDF projects.
+Go to the project directory and run:
+
+  idf.py build
+
+```
+
+7. Проверяем работоспособность фреймворка и рабочего окружения:
+    1. Переходим в каталог примеров: ```cd ~/espressif/esp-idf/examples/get-started/hello-world```
+    2. Вызываем ```idf.py build```. ```idf.py``` — это инструмент управления сборкой esp32 проектов из командной строки
+    3. Если всё удачно собралось, залогиниться под суперюзером: ```sudo su```
+    4. Скопировать файл ```cp ./40-dfuse.rule /etc/udev/rules.d/``` или создать файл ```cd /etc/udev/rules.d && vim 40-dfuse.rule``` и скопировать туда правила доступа для устройств
+    5. Перезапустить ```sudo systemctl restart udev.service```
+    6. Перечитать правила: ```sudo udevadm control --reload-rules```
+
+Файл ```/etc/udev/rules.d/40-dfuse.rule```
+
+
+```
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="60??", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+```
+
+8. Не обязательно, но можно создать файл конфигурации переменных окружения и для создания алиаса ```idfexp``` — настройка текущего терминала для работы утилиты ```idf.py```. Проверить работу файла можно при помощи команды ```source ~/.idfrc```. Подключить автозагрузку либо в ```.profile```:
+
+```
+if [ -f "$HOME/.idfrc" ] ; then 
+  source "$HOME/.idfrc"
+fi
+```
+
+Или тот же код в ```.bashrc```
+
+Или в ```.idfrc```, если у вас установлен ```zsh```
+
+```[ -s "$HOME/.zshrc" ] && \. "$HOME/.idfrc"
+
+
+##### VSCode
+##### Eclipse
+#### На Windows
+##### esp-idf
+##### VSCode
+##### Eclipse
