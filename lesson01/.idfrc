@@ -1,0 +1,27 @@
+# Скрипт для "подёма" окружения esp-idf, esp-adf, esp-mdf
+#
+ESP_PATH="$HOME/espressif"
+IDF_TOOLS_PATH="$HOME/.espressif"
+
+if [ -d "$ESP_PATH/esp-idf" ] ; then
+	IDF_PATH="$ESP_PATH/esp-idf"
+	export IDF_PATH
+	if [ -f "$IDF_PATH/export.sh" ] ; then
+		alias idfexp="\. $IDF_PATH/export.sh"
+	fi
+fi
+
+if [ -f "$ESP_PATH/esp-adf" ] ; then
+	ADF_PATH="$ESP_PATH/esp-adf"
+	export ADF_PATH
+fi
+
+if [ -f "$ESP_PATH/esp-mdf" ] ; then
+	MDF_PATH="$ESP_PATH/esp-mdf"
+	export MDF_PATH
+fi
+
+if [ -d "$IDF_TOOLS_PATH" ] ; then
+	export IDF_TOOLS_PATH
+fi
+

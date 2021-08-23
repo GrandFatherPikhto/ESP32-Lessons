@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec="/home/grandfatherpikhto/IDE/VSCode-linux-x64/bin/code" %F
+Name=VSCode
+GenericName=The Microsoft IDE for C/C++, Javascript, Python e.t.c. development.
+Icon=/home/grandfatherpikhto/IDE/VSCode-linux-x64/resources/app/resources/linux/code.png
+StartupWMClass=code
+Terminal=false
+Categories=Development;IDE;C/C++;Python;Java;Java Script;Node;NodeJS
+MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;
