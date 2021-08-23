@@ -1,19 +1,19 @@
 # Урок 1. Установка и настройка окружения esp-idf под Linux & Windows.
-1. Espressif
-    1. DIY
-    2. Сравненение с другими процессорами 
-    3. Полезные ссылки
-2. Linux
-    1. Установка среды разработки на Ubuntu 21.04 
-    2. Установка и настройка VSCode и плагина esp-idf
-    3. Установка и настройка Eclipse и плагина esp-idf
-3. Windows 10
-    1. Установка среды разработки на Windows
-    2. Установка и настройка VSCode и плагина esp-idf
-    3. Установка и настройка Eclipse и плагина esp-idf
+1. [Espressif](#espressif)
+    1. [DIY](#DIY)
+    2. [Сравненение с другими процессорами](#compare)
+    3. [Полезные ссылки](#usefullinks)
+2. [Linux](#linux)
+    1. [Установка среды разработки на Ubuntu 21.04](#espidfonlinux)
+    2. [Установка и настройка VSCode и плагина esp-idf](#espidflinuxvscodeplugin)
+    3. [Установка и настройка Eclipse и плагина esp-idf](#espidflinuxeclipseplugin)
+3. [Windows 10](#windows)
+    1. [Установка среды разработки на Windows](#espidfonwindows)
+    2. [Установка и настройка VSCode и плагина esp-idf](#espidfwinvscodeplugin)
+    3. [Установка и настройка Eclipse и плагина esp-idf](#espidfwineclipseplugin)
 
-## Espressif
-### Сравнение
+## Espressif <div id="espressif"></div>
+### Сравнение <div id="compare"></div>
 #### ESP32
 Основные причины использования ESP32
 1. 2.4 мГц
@@ -24,7 +24,7 @@
 1. Линейка STM *гораздо* лучше документирована
 2. По производительности STM выигрывает. Так, STM32H750 работает на частоте 400 мГц
 3. Поддержка компилятора STM сделана *значительно* лучше. Так, можно использовать инструкции DSP отдельно от C-кода.
-### Полезные ссылки
+### Полезные ссылки <div id="usefullinks"></div>
 1. https://espressif.com — Основной сайт Espressif
 2. https://docs.espressif.com — Описание API esp-mdf, esp-adf, esp-idf и многого другого
 3. https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html 
@@ -38,8 +38,8 @@
 11. https://www.espressif.com/en/support/documents/technical-documents Вся техническая документация
 12. https://0x04.net/~mwk/doc/xtensa.pdf Xtensa® Instruction Set Architecture (ISA) Reference Manual
 ### Установка и настройка esp-idf
-#### На Linux
-##### esp-idf
+#### Linux <div id="linux"></div>
+##### esp-idf <div id="espidfonlinux"></div>
 **Задача**: Установить *esp-idf*, *VSCode*, *Eclipse*, так, чтобы программирование из консоли, *VSCode* и *Eclipse* осуществлялись с одного дистрибутива *esp-idf*
 1. Установить git 
 ```sudo apt install git-all```, ```sudo snap install git```, ```sudo dnf install git-all``` и так далее.
@@ -170,13 +170,15 @@ fi
 11. Запускаем ```idf.py monitor -p /dev/ttyUSB0```. Строго говоря, если к компьютеру подключено только одно устройство, порт можно не указывать. Правда, **idf.py** может начать по очереди опрашивать доступные порты, что удлиннит время работы.
 12. Выход из команды монитора **Ctrl+]**
 
-##### VSCode
+##### VSCode <div id="espidflinuxvscodeplugin"></div>
 
 1. Скачать *.tar.gz* архив *VSCode* с линка https://code.visualstudio.com/download
 2. Создать каталог *~/IDE/*, скопировать туда архив и развернуть его ```tar -zxvf code-stable-x64-xxxxxxxxxxxx.tar.gz```
 3. Создать мягкий линк ```ln -sf ~\IDE\VSCode-Linux-x64\bin\code ~\.local\bin``` именно из каталога *bin*, потому, что именно ```.../bin/code```, «отпускает» консоль после запуска.
 4. Если Вы используете среду *GNOME*, заменить *${HOME}* в *vscode.desktop* и копировать ```cp vscode.desktop ~/.local/share/applications``` или в ```/usr/share/applications```, если Вы хотите чтобы Ваш *VSCode* был бы виден глобально.
 
+
+Файл ***vscode.desktop***
 
 
 ```
@@ -212,7 +214,7 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 12. Пытаемся собрать проект. Иногда, после первого запуска случается так, что проект не собирается из-за того, что не хватает привилегий. С чем это связано, не знаю, но надо просто перезапустить *VSCode*
 13. Запускаем сборку, прошивку и мониторинг проекта — **Ctrl+E D**. Обратите внимание: сверху может появиться выбор способа прошивки проекта: **UART/JTAG**. Выбираем **UART**.
 14. Если всё прошло удачно, запустится мониторинг проекта с отображений журнала сообщений от процессора **ESP32**, передаваемых через **USB**.
-##### Eclipse
+##### Eclipse <div id="espidflinuxeclipseplugin"></div>
 1. Скачиваем установщик *Eclipse* с https://www.eclipse.org/downloads/. Важно! Должна быть установлена *Oracle Java*: https://www.oracle.com/ru/java/technologies/javase-jre8-downloads.html
 2. Кладём установщик в каталог ```~/IDE/eclipse```. Его можно будет запускать повторно и в средах *GNOME*, *KDE*, *XFCE*, *MATE*, установщик создаст нужные скрипты запуска.
 3. Если справа сверху на иконке «бургера» появится восклицательный знак, обновляем установщик, чтобы он мог установить последние версии сборок *Eclipse*
