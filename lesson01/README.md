@@ -13,6 +13,8 @@
     3. [Установка и настройка Eclipse и плагина esp-idf](#espidfwineclipseplugin)
 
 ## Espressif <div id="espressif"></div>
+### DIY
+Самодельничество, гаражные разработки, «сделай сам» (англ. DIY — Do It Yourself), — вид деятельности, при котором люди самостоятельно производят какие-либо изделия для собственного использования. © https://ru.wikipedia.org/wiki/DIY
 ### Сравнение <div id="compare"></div>
 #### ESP32
 Основные причины использования ESP32
