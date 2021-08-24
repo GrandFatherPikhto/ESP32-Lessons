@@ -43,6 +43,7 @@
 **Задача**: Установить *esp-idf*, *VSCode*, *Eclipse*, так, чтобы программирование из консоли, *VSCode* и *Eclipse* осуществлялись с одного дистрибутива *esp-idf*
 1. Установить git 
 ```sudo apt install git-all```, ```sudo snap install git```, ```sudo dnf install git-all``` и так далее.
+
 2. Проверить, установлен ли python. Обычно, если python установлен, то 3.x версия, которая вызывается командой ```python3```. Если нельзя вызвать ```python```, cделать мягкую ссылку ```ln -sf /usr/bin/python3.9 ~/.local/bin/python```
 3. Создать каталог *~/espressif*, 
 
@@ -305,7 +306,7 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 
 
 
-![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_flash.png)
+![Настройка сборщика ESP-IDF](./images/eclipse_esp_idf_flash.png)
 
 
 
@@ -322,6 +323,7 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 #### Windows
 ##### esp-idf
 1. Мы не можем использовать Windows PowerShell — скрипт ```export.bat``` из пакета **esp-idf** не может изменять переменные окружения, необходимые для работы **idf.py**. Поэтому, все действия производим из «командной строки».
+
 4. Не забываем добавить в **Path** пути к ```git``` и ```python```(На момент написания этой заметки, актуален Python3.9. Может быть установлено и другое окружение). Для этого вызываем из главного меню «Настройки», через поиск находим «Изменение переменных среды текущего пользователя». Находим переменную **Path** и добавляем туда ```C:\Program Files\Git\bin```, ```C:\Program Files\Python39``` 
 2. Устанавливаем **git**: https://git-scm.com/download/win
 3. Устанавливаем **python**: https://www.python.org/downloads/
@@ -396,6 +398,74 @@ Go to the project directory and run:
 
   idf.py build
 
+```
+
+Если набрать команду ```>set```, мы должны увидеть что-то такое:
+
+```
+ALLUSERSPROFILE=C:\ProgramData
+APPDATA=C:\Users\grand\AppData\Roaming
+ChocolateyInstall=C:\ProgramData\chocolatey
+CommonProgramFiles=C:\Program Files\Common Files
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=ILLUSION
+ComSpec=C:\WINDOWS\system32\cmd.exe
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+HOMEPATH=\Users\grand
+IDF_CCACHE_ENABLE=1
+IDF_PATH=C:\Users\grand\espressif\esp-idf
+IDF_PYTHON_ENV_PATH=C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env
+INTEL_DEV_REDIST=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
+KICAD_SYMBOL_DIR=C:\Program Files\KiCad\share\kicad\library
+KICAD_TEMPLATE_DIR=C:\Program Files\KiCad\share\kicad\template
+KISYS3DMOD=C:\Program Files\KiCad\share\kicad\modules\packages3d
+KISYSMOD=C:\Program Files\KiCad\share\kicad\modules
+LOCALAPPDATA=C:\Users\grand\AppData\Local
+LOGONSERVER=\\ILLUSION
+MIC_LD_LIBRARY_PATH=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\compiler\lib\mic
+NUMBER_OF_PROCESSORS=24
+OneDrive=C:\Users\grand\OneDrive
+OneDriveConsumer=C:\Users\grand\OneDrive
+OPENOCD_SCRIPTS=C:\Users\grand\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210721\openocd-esp32\share\openocd\scripts
+OS=Windows_NT
+Path=C:\Users\grand\.espressif\tools\xtensa-esp32-elf\esp-2021r1-8.4.0\xtensa-esp32-elf\bin;C:\Users\grand\.espressif\tools\xtensa-esp32s2-elf\esp-2021r1-8.4.0\xtensa-esp32s2-elf\bin;C:\Users\grand\.espressif\tools\xtensa-esp32s3-elf\esp-2021r1-8.4.0\xtensa-esp32s3-elf\bin;C:\Users\grand\.espressif\tools\riscv32-esp-elf\esp-2021r1-8.4.0\riscv32-esp-elf\bin;C:\Users\grand\.espressif\tools\esp32ulp-elf\2.28.51-esp-20191205\esp32ulp-elf-binutils\bin;C:\Users\grand\.espressif\tools\esp32s2ulp-elf\2.28.51-esp-20191205\esp32s2ulp-elf-binutils\bin;C:\Users\grand\.espressif\tools\cmake\3.20.3\bin;C:\Users\grand\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210721\openocd-esp32\bin;C:\Users\grand\.espressif\tools\idf-exe\1.0.1\;C:\Users\grand\.espressif\tools\ccache\4.3\ccache-4.3-windows-64;C:\Users\grand\.espressif\tools\dfu-util\0.9\dfu-util-0.9-win64;C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env\Scripts;C:\Users\grand\espressif\esp-idf\tools;C:\ActiveTcl\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\Calibre2\;C:\Program Files\PuTTY\;C:\Program Files\MiKTeX\miktex\bin\x64\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\Microchip\xc8\v2.31\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Utils\;C:\Program Files\dotnet\;C:\Program Files\Python39\;C:\Program Files\Notepad++;C:\Program Files\Git\cmd;C:\Users\grand\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Python39;C:\Program Files\Git\bin;;C:\Users\grand\AppData\Local\Programs\Microsoft VS Code\bin
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+PREFIX=python.exe C:\Users\grand\espressif\esp-idf
+PROCESSOR_ARCHITECTURE=AMD64
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 63 Stepping 2, GenuineIntel
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=3f02
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramW6432=C:\Program Files
+PROMPT=$P$G
+PSModulePath=C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\PowerShell\Modules\
+PUBLIC=C:\Users\Public
+SESSIONNAME=Console
+SystemDrive=C:
+SystemRoot=C:\WINDOWS
+TEMP=C:\Users\grand\AppData\Local\Temp
+TMP=C:\Users\grand\AppData\Local\Temp
+USERDOMAIN=ILLUSION
+USERDOMAIN_ROAMINGPROFILE=ILLUSION
+USERNAME=grand
+USERPROFILE=C:\Users\grand
+VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\
+windir=C:\WINDOWS
+```
+
+
+Нас интересует всё, что связано с IDF:
+
+```
+IDF_CCACHE_ENABLE=1
+IDF_PATH=C:\Users\grand\espressif\esp-idf
+IDF_PYTHON_ENV_PATH=C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env
+PREFIX=python.exe C:\Users\grand\espressif\esp-idf
+IDF_CCACHE_ENABLE=1
 ```
 
 6. После того, как всё установилось, запускаем ```.\export.bat``` и можем запустить для проверки сборку примера **Hello World**:
@@ -505,15 +575,39 @@ Restarting in 3 seconds...
 
 8. Убедившись, что пример работает, запускаем из главного меню «Параметры» через поиск «Изменение переменных среды текущего пользователя». Причём, именно, текущего пользователя, если мы не хотим, чтобы все остальные видели эти переменные. Добавляем **IDF_PATH** со значением ```%USERPROFILE%/espressif/esp-idf```. Это нужно для установки плагина ```esp-idf``` на *VSCode*. В принципе, можно добавить **IDF_PYTHON_ENV_PATH** с указанием пути к *Python Virtual Environment*. На момент настройки, *venv* находится в каталоге ```%USERPROFILE%\.espressif\python_env\idf4.4_py3.9_env```. Понятно, что с изменением версии **esp-idf** и версии **python** путь к каталогу изменится. Также, можно добавить **IDF_TOOLS_PATH**. Имеется в виду путь к инструментарию **idf**. Обычно инструментарий устанавливается в каталог ```%USERPROFILE%\.espressif```
 
+![Настройка переменных окружения для пользователя](./images/options_user_environment_variables_01.png)
+
+![Настройка переменных окружения для пользователя](./images/options_user_environment_variables_02.png)
+
+![Настройка переменных окружения для пользователя](./images/options_user_environment_variables_03.png)
+
+
 9. Теперь, когда всё настроено, можно приступить к установке и настройке *VSCode*: https://code.visualstudio.com/download. Выбираем «User installer», если не хотим чтобы *VSCode* был установлен для всех пользователей компьютера. «User installer» установит *VSCode* в каталог ```%USERPROFILE%```. «System installer» установит программу в ```%ProgramFiles%``` (Обычно, ```C:\Program Files```)
 
 10. Устанавливаем плагин **esp-idf**. После перезагрузки нажимаем **F1** и ищем *\>ESP_IDF: Настроить расширение ESP-IDF*. Если всё прошло удачно, видим «USE EXISTING SETUP». Если нет, идём в «*\>ESP-IDF: Команда врача*» и исследуем скопированный в буффер отчёт (Создать новый файл **Ctrl+N**, вставить содержимое буффера **Shift+Ins** и читать, пока не станет понятно, в чём именно дело)
+
+
+![Установка esp-idf в VSCode](./images/vscode_esp_idf_install.png)
+
+![Настройка окружения ESP-IDF](./images/vscode_esp_idf_existing_config.png)
+
 
 11. Если видим «IDF-Extension for Visual Studio Code. All settings have been configured. You can close this window.», значит, настройка прошла удачно. 
 
 12. Можно вызвать команду создания нового ESP-IDF проекта: **Ctrl+E N**. Выбираем имя и путь к новому проекту. Важно, чтобы путь *существовал*. Иначе, новый проект не будет создан. Выбираем шаблон для проекта. Самый простой — «template-app». Это пример «Hello World». Выбираем «Crete project using template-app». Если видим «Project ... has been created. Open project in new window?», значит, всё прошло удачно и можно нажать «Yes».
 
+![Создание нового проекта ESP-IDF](./images/vscode_esp_idf_create_new_project.png)
+
+
 13. В новом окне пробуем собрать проект: «**Ctrl+E B**». Если всё прошло хорошо, можно запустить прошивку проекта: **F1**, «\>ESP-IDF: Выбрать метод прошивки и прошить» (Команда **Ctrl+E F** на этот момент заглючила)
+
+![Сборка нового проекта ESP-IDF](./images/vscode_esp_idf_project_build.png)
+
+
+![Прошивка нового проекта ESP-IDF](./images/vscode_esp_idf_project_flash.png)
+
+
+![IDF-монитор проекта ESP-IDF](./images/vscode_esp_idf_monitor.png)
 
 14. Полный список команд здесь: https://github.com/espressif/vscode-esp-idf-extension#Available-commands
 
@@ -527,9 +621,15 @@ Restarting in 3 seconds...
 
 18. Запускаем установщик, если справа сверху в бургере появился восклицательный знак, обновляем установщик.
 
+![Установка Eclipse](./images/eclipse_installer.png)
+
+
 19. После обновления запускаем установку «Eclipse IDE for C/C++ Developers». В принципе, было бы неплохо создать ярлык eclipse на рабочем столе, потому, что локальный установщик *Eclipse* не создаёт в меню «Пуск» иконки для *Eclipse*. Обычно *Eclipse* устанавливается в %USERPROFILE\eclipse\cpp-latest-released\eclipse%. 
 
 20. После установки, «Help->Eclipse Marketlace», ищем «esp-idf». Устанавливаем. После перезагрузки «Help->Download and Configure ESP-IDF». Выбрать «Ues an existing ESP-IDF directory from file system»
+
+![Установка Eclipse ESP-IDF](./images/eclipse_market_place.png)
+
 
 Скорее всего, *esp-idf* установлен в ```%USERPROFILE\espressif\esp-idf```, *git* в ```%ProgramFiles\git\bin```, *python*, в ```%ProgramFiles\python39```. 
 Если всё идёт, как надо, увидим примерно следующее:
@@ -541,12 +641,43 @@ This can take a while. Please be patient.
 Install tools completed.
 ```
 
+![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf.png)
+
+
+![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf_confirm.png)
+
+
+![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf_paths.png)
+
+
+
 21. Если установка прошла успешно, после установки вызываем «File->New Project». «Espressif IDF Project». В отличие от *VSCode*, *Eclipse* создаёт новый проект, используя один из примеров, находящихся в каталоге *%USERPROFILE%\espressif\esp-idf\examples*. Самое простое использовать «Hello World».
+
+
+![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project.png)
+
+
+![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project_next.png)
+
+
+![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project_templates.png)
 
 
 22. Не забудьте выставить в тулбаре *ESP-IDF* в выпадающем списке «on», «esp32», потому что у вас скорее всего, обычная *ESP32*. Нажмите на шестерёнку и выберите порт прошивки: «COM3»,  «COM5»,  «COM7»,  ... и так далее.
 
+![Настройка сборщика ESP-IDF](./images/eclipse_esp_idf_flash.png)
+
+
 23. Нажимаем кнопку «Run», собираем и прошиваем проект. Чтобы запустить ESP-IDF Monitor, нажимаем на панели ESP-IDF значок монитора, выбираем порт и кодировку UTF-8. Наблюдаем сообщения журнала esp32
 
+
+![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_config_monitor.png)
+
+
+
+![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_monitor.png)
+
+
+На этом, всё!
 
 
