@@ -201,13 +201,13 @@ MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;
 5. Установить плагин *esp-idf* в *VSCode*
 
 
-![Установка esp-idf в VSCode](./images/vscode_esp_idf_install.png)
+![Установка esp-idf в VSCode](./files/images/vscode_esp_idf_install.png)
 
 
 6. Запустить ```code .``` из консоли, где был запущен скрипт ```. ~/espressif/esp-idf/export.sh```, чтобы плагин смог «подхватить» переменные окружения и узнать, где установлен фреймворк и набор инструментов с *venv* python.
 7. При помощи клавиши **F1** вызвать меню команд *VSCode* и найти **\>ESP-IDF: Настроить расширение EPS-IDF**
 
-![Настройка окружения ESP-IDF](./images/vscode_esp_idf_existing_config.png)
+![Настройка окружения ESP-IDF](./files/images/vscode_esp_idf_existing_config.png)
 
 8. Если появился экран с возможностью выбора 
 
@@ -218,43 +218,43 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 Всё в порядке. Выбираем «USE EXISTING SETUP»
 
 
-![Установка существующего фреймворка ESP-IDF](./images/vscode_esp_idf_existing_setup.png)
+![Установка существующего фреймворка ESP-IDF](./files/images/vscode_esp_idf_existing_setup.png)
 
 
 9. Если установка прошла удачно, жмём **Ctrl + E N**. Если нет, **F1 -> \>ESP-IDF: Команда врача** вставляем содержимое **Ctrl+V** в новый файл ищем, что не так. Выбираем какой-нибудь шаблон приложения. Например, «template-app» — Hello World).
 
 
-![Создание нового проекта ESP-IDF](./images/vscode_esp_idf_create_new_project.png)
+![Создание нового проекта ESP-IDF](./files/images/vscode_esp_idf_create_new_project.png)
 
 
 Или Вы можете выбрать **Ctrl+E: C** — создать проект из шаблона расширения (т.е., из одного из примеров из ```%USERPROFILE%/espressif/esp-idf/examples```)
 
 
-![Создание нового проекта ESP-IDF](./images/vscode_esp_idf_create_new_project_from_template.png)
+![Создание нового проекта ESP-IDF](./files/images/vscode_esp_idf_create_new_project_from_template.png)
 
 
 Или можно выбрать «\>ESP-IDF: Показать проекты примеров» и создать проект из выбранного примера:
 
 
-![Создание нового проекта ESP-IDF](./images/vscode_esp_idf_create_project_from_example.png)
+![Создание нового проекта ESP-IDF](./files/images/vscode_esp_idf_create_project_from_example.png)
 
 
 10. Если всё прошло удачно (будьте внимательны, каталог, в котором создаётся новый проект должен существовать, иначе, будет сообщение об ошибке) соглашаемся открыть новое окно.
 
 
-![Создание нового проекта ESP-IDF](./images/vscode_esp_idf_project_created.png)
+![Создание нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_created.png)
 
 
 
 11. Пытаемся собрать проект. Иногда, после первого запуска случается так, что проект не собирается из-за того, что не хватает привилегий. С чем это связано, не знаю, но надо просто перезапустить *VSCode*
 
 
-![Сборка нового проекта ESP-IDF](./images/vscode_esp_idf_project_build.png)
+![Сборка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_build.png)
 
 
 12. Запускаем сборку, прошивку и мониторинг проекта — **Ctrl+E D**. Обратите внимание: сверху может появиться выбор способа прошивки проекта: **UART/JTAG**. Выбираем **UART**.
 
-![Прошивка нового проекта ESP-IDF](./images/vscode_esp_idf_project_flash.png)
+![Прошивка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_flash.png)
 
 
 13. Если всё прошло удачно, запустится мониторинг проекта с отображений журнала сообщений от процессора **ESP32**, передаваемых через **USB**.
@@ -266,58 +266,58 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 3. Если справа сверху на иконке «бургера» появится восклицательный знак, обновляем установщик, чтобы он мог установить последние версии сборок *Eclipse*
 4. Устанавливаем *Eclipse developing C/C++*
 
-![Установка Eclipse](./images/eclipse_installer.png)
+![Установка Eclipse](./files/images/eclipse_installer.png)
 
 5. После запуска установленного *Eclipse*, идём в *Help->Market place*. В строке поиска выбираем **esp-idf**. Устанавливаем. Перезапускаем *Eclipse*. 
 
 
-![Установка Eclipse ESP-IDF](./images/eclipse_market_place.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_market_place.png)
 
 
 6. В меню *Help*, выбираем *Help->Download and configure ESP-IDF*. Далее, выбираем *Use an existing ESP-IDF directory from file system*. Указываем путь к установленному пакету **esp-idf**. В данном случае, это ```~/espressif/esp-idf```.
 
 
-![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf.png)
 
 
 7. Появится окошко с путями к **esp-idf**, **git**, **python**. Если какой-либо путь не «подхватился», добавьте его вручную, используя в консоли команду ```which```, например, ```which git```, ```which python``` и т.д.
 
 
 
-![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf_confirm.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf_confirm.png)
 
 
-![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf_paths.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf_paths.png)
 
 
 8. После перезапуска выбираем *File->Project*. В диалоговом окне выбираем *Espressif->Espressif IDF Project*. *Next*. Если далее выбрать *«Next»*, появится окно с выбором шаблонного проекта из списка ```~/espressif/esp-idf/examples```. Самые простые проекты — «hello world», «blink», «sample_project». Можете выбрать любой.
 
 
-![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project.png)
+![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project.png)
 
 
-![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project_next.png)
+![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project_next.png)
 
 
-![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project_templates.png)
+![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project_templates.png)
 
 
 9. Выбираем в поле «on», «Esp32». Нажимаем на шестерёнку и выбираем порт USB. Обычно, это ```/dev/ttyUSB0```. Нажимаем «Run». Если все прошло удачно, проект будет собран и прошит.
 
 
 
-![Настройка сборщика ESP-IDF](./images/eclipse_esp_idf_flash.png)
+![Настройка сборщика ESP-IDF](./files/images/eclipse_esp_idf_flash.png)
 
 
 
 10. Нажимаем на иконку с монитором в верхнем тулбаре, указываем кодировку *UTF-8*, порт ```/dev/ttyUSB0```. Должен запуститься *IDF-monitor*. К сожалению, выход по **Ctrl+]** не работает. Когда в мониторе не будет необходимости, его надо просто закрыть.
 
 
-![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_config_monitor.png)
+![Сборка и прошивка проекта ESP-IDF](./files/images/eclipse_esp_idf_config_monitor.png)
 
 
 
-![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_monitor.png)
+![Сборка и прошивка проекта ESP-IDF](./files/images/eclipse_esp_idf_monitor.png)
 
 
 #### Windows
@@ -575,11 +575,11 @@ Restarting in 3 seconds...
 
 8. Убедившись, что пример работает, запускаем из главного меню «Параметры» через поиск «Изменение переменных среды текущего пользователя». Причём, именно, текущего пользователя, если мы не хотим, чтобы все остальные видели эти переменные. Добавляем **IDF_PATH** со значением ```%USERPROFILE%/espressif/esp-idf```. Это нужно для установки плагина ```esp-idf``` на *VSCode*. В принципе, можно добавить **IDF_PYTHON_ENV_PATH** с указанием пути к *Python Virtual Environment*. На момент настройки, *venv* находится в каталоге ```%USERPROFILE%\.espressif\python_env\idf4.4_py3.9_env```. Понятно, что с изменением версии **esp-idf** и версии **python** путь к каталогу изменится. Также, можно добавить **IDF_TOOLS_PATH**. Имеется в виду путь к инструментарию **idf**. Обычно инструментарий устанавливается в каталог ```%USERPROFILE%\.espressif```
 
-![Настройка переменных окружения для пользователя](./images/options_user_environment_variables_01.png)
+![Настройка переменных окружения для пользователя](./files/images/options_user_environment_variables_01.png)
 
-![Настройка переменных окружения для пользователя](./images/options_user_environment_variables_02.png)
+![Настройка переменных окружения для пользователя](./files/images/options_user_environment_variables_02.png)
 
-![Настройка переменных окружения для пользователя](./images/options_user_environment_variables_03.png)
+![Настройка переменных окружения для пользователя](./files/images/options_user_environment_variables_03.png)
 
 
 9. Теперь, когда всё настроено, можно приступить к установке и настройке *VSCode*: https://code.visualstudio.com/download. Выбираем «User installer», если не хотим чтобы *VSCode* был установлен для всех пользователей компьютера. «User installer» установит *VSCode* в каталог ```%USERPROFILE%```. «System installer» установит программу в ```%ProgramFiles%``` (Обычно, ```C:\Program Files```)
@@ -587,27 +587,27 @@ Restarting in 3 seconds...
 10. Устанавливаем плагин **esp-idf**. После перезагрузки нажимаем **F1** и ищем *\>ESP_IDF: Настроить расширение ESP-IDF*. Если всё прошло удачно, видим «USE EXISTING SETUP». Если нет, идём в «*\>ESP-IDF: Команда врача*» и исследуем скопированный в буффер отчёт (Создать новый файл **Ctrl+N**, вставить содержимое буффера **Shift+Ins** и читать, пока не станет понятно, в чём именно дело)
 
 
-![Установка esp-idf в VSCode](./images/vscode_esp_idf_install.png)
+![Установка esp-idf в VSCode](./files/images/vscode_esp_idf_install.png)
 
-![Настройка окружения ESP-IDF](./images/vscode_esp_idf_existing_config.png)
+![Настройка окружения ESP-IDF](./files/images/vscode_esp_idf_existing_config.png)
 
 
 11. Если видим «IDF-Extension for Visual Studio Code. All settings have been configured. You can close this window.», значит, настройка прошла удачно. 
 
 12. Можно вызвать команду создания нового ESP-IDF проекта: **Ctrl+E N**. Выбираем имя и путь к новому проекту. Важно, чтобы путь *существовал*. Иначе, новый проект не будет создан. Выбираем шаблон для проекта. Самый простой — «template-app». Это пример «Hello World». Выбираем «Crete project using template-app». Если видим «Project ... has been created. Open project in new window?», значит, всё прошло удачно и можно нажать «Yes».
 
-![Создание нового проекта ESP-IDF](./images/vscode_esp_idf_create_new_project.png)
+![Создание нового проекта ESP-IDF](./files/images/vscode_esp_idf_create_new_project.png)
 
 
 13. В новом окне пробуем собрать проект: «**Ctrl+E B**». Если всё прошло хорошо, можно запустить прошивку проекта: **F1**, «\>ESP-IDF: Выбрать метод прошивки и прошить» (Команда **Ctrl+E F** на этот момент заглючила)
 
-![Сборка нового проекта ESP-IDF](./images/vscode_esp_idf_project_build.png)
+![Сборка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_build.png)
 
 
-![Прошивка нового проекта ESP-IDF](./images/vscode_esp_idf_project_flash.png)
+![Прошивка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_flash.png)
 
 
-![IDF-монитор проекта ESP-IDF](./images/vscode_esp_idf_monitor.png)
+![IDF-монитор проекта ESP-IDF](./files/images/vscode_esp_idf_monitor.png)
 
 14. Полный список команд здесь: https://github.com/espressif/vscode-esp-idf-extension#Available-commands
 
@@ -621,14 +621,14 @@ Restarting in 3 seconds...
 
 18. Запускаем установщик, если справа сверху в бургере появился восклицательный знак, обновляем установщик.
 
-![Установка Eclipse](./images/eclipse_installer.png)
+![Установка Eclipse](./files/images/eclipse_installer.png)
 
 
 19. После обновления запускаем установку «Eclipse IDE for C/C++ Developers». В принципе, было бы неплохо создать ярлык eclipse на рабочем столе, потому, что локальный установщик *Eclipse* не создаёт в меню «Пуск» иконки для *Eclipse*. Обычно *Eclipse* устанавливается в %USERPROFILE\eclipse\cpp-latest-released\eclipse%. 
 
 20. После установки, «Help->Eclipse Marketlace», ищем «esp-idf». Устанавливаем. После перезагрузки «Help->Download and Configure ESP-IDF». Выбрать «Ues an existing ESP-IDF directory from file system»
 
-![Установка Eclipse ESP-IDF](./images/eclipse_market_place.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_market_place.png)
 
 
 Скорее всего, *esp-idf* установлен в ```%USERPROFILE\espressif\esp-idf```, *git* в ```%ProgramFiles\git\bin```, *python*, в ```%ProgramFiles\python39```. 
@@ -641,41 +641,41 @@ This can take a while. Please be patient.
 Install tools completed.
 ```
 
-![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf.png)
 
 
-![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf_confirm.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf_confirm.png)
 
 
-![Установка Eclipse ESP-IDF](./images/eclipse_config_existing_esp_idf_paths.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf_paths.png)
 
 
 
 21. Если установка прошла успешно, после установки вызываем «File->New Project». «Espressif IDF Project». В отличие от *VSCode*, *Eclipse* создаёт новый проект, используя один из примеров, находящихся в каталоге *%USERPROFILE%\espressif\esp-idf\examples*. Самое простое использовать «Hello World».
 
 
-![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project.png)
+![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project.png)
 
 
-![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project_next.png)
+![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project_next.png)
 
 
-![Создание проекта ESP-IDF](./images/eclipse_new_esp_idf_project_templates.png)
+![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project_templates.png)
 
 
 22. Не забудьте выставить в тулбаре *ESP-IDF* в выпадающем списке «on», «esp32», потому что у вас скорее всего, обычная *ESP32*. Нажмите на шестерёнку и выберите порт прошивки: «COM3»,  «COM5»,  «COM7»,  ... и так далее.
 
-![Настройка сборщика ESP-IDF](./images/eclipse_esp_idf_flash.png)
+![Настройка сборщика ESP-IDF](./files/images/eclipse_esp_idf_flash.png)
 
 
 23. Нажимаем кнопку «Run», собираем и прошиваем проект. Чтобы запустить ESP-IDF Monitor, нажимаем на панели ESP-IDF значок монитора, выбираем порт и кодировку UTF-8. Наблюдаем сообщения журнала esp32
 
 
-![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_config_monitor.png)
+![Сборка и прошивка проекта ESP-IDF](./files/images/eclipse_esp_idf_config_monitor.png)
 
 
 
-![Сборка и прошивка проекта ESP-IDF](./images/eclipse_esp_idf_monitor.png)
+![Сборка и прошивка проекта ESP-IDF](./files/images/eclipse_esp_idf_monitor.png)
 
 
 На этом, всё!
