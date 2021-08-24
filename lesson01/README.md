@@ -38,7 +38,7 @@
 9. https://github.com/espressif/vscode-esp-idf-extension Плагин для VSCode
 10. https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
 11. https://www.espressif.com/en/support/documents/technical-documents Вся техническая документация
-12. https://0x04.net/~mwk/doc/xtensa.pdf Xtensa® Instruction Set Architecture (ISA) Reference Manual
+12. https://0x04.net/~mwk/doc/xtensa.pdf Xtensa® Instruction Set Architecture (ISA) Reference Manual (Для тех, кто хочет изучить более глубоко архитектуру MCU Xtensa)
 ### Установка и настройка esp-idf
 #### Linux <div id="linux"></div>
 ##### esp-idf <div id="espidfonlinux"></div>
