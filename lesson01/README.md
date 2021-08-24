@@ -207,7 +207,7 @@ MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;
 6. Запустить ```code .``` из консоли, где был запущен скрипт ```. ~/espressif/esp-idf/export.sh```, чтобы плагин смог «подхватить» переменные окружения и узнать, где установлен фреймворк и набор инструментов с *venv* python.
 7. При помощи клавиши **F1** вызвать меню команд *VSCode* и найти **\>ESP-IDF: Настроить расширение EPS-IDF**
 
-![Настройка окружения ESP-IDF](./files/images/vscode_esp_idf_existing_config.png)
+![Настройка окружения ESP-IDF](./files/images/vscode_esp_idf_existing_setup.png)
 
 8. Если появился экран с возможностью выбора 
 
