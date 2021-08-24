@@ -244,6 +244,67 @@ cd .\esp-idf\
 .\install.bat
 ```
 
+Если всё пошло удачно, видим что-то вроде:
+
+```
+C:\Users\grand\espressif\esp-idf>.\install.bat
+Installing ESP-IDF tools
+WARNING: File C:\Users\grand\.espressif\idf-env.json was not found.
+Creating C:\Users\grand\.espressif\idf-env.json
+Selected targets are: esp32s3, esp32c3, esp32s2, esp32
+Installing tools: xtensa-esp32-elf, xtensa-esp32s2-elf, xtensa-esp32s3-elf, riscv32-esp-elf, esp32ulp-elf, esp32s2ulp-elf, cmake, openocd-esp32, ninja, idf-exe, ccache, dfu-util
+Skipping xtensa-esp32-elf@esp-2021r1-8.4.0 (already installed)
+Skipping xtensa-esp32s2-elf@esp-2021r1-8.4.0 (already installed)
+Skipping xtensa-esp32s3-elf@esp-2021r1-8.4.0 (already installed)
+Skipping riscv32-esp-elf@esp-2021r1-8.4.0 (already installed)
+Skipping esp32ulp-elf@2.28.51-esp-20191205 (already installed)
+Skipping esp32s2ulp-elf@2.28.51-esp-20191205 (already installed)
+Skipping cmake@3.20.3 (already installed)
+Skipping openocd-esp32@v0.10.0-esp32-20210721 (already installed)
+Skipping ninja@1.10.2 (already installed)
+Skipping idf-exe@1.0.1 (already installed)
+Skipping ccache@4.3 (already installed)
+Skipping dfu-util@0.9 (already installed)
+Setting up Python environment
+Python 3.9.6
+pip 21.2.4 from C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env\lib\site-packages\pip (python 3.9)
+Installing Python packages from C:\Users\grand\espressif\esp-idf\requirements.txt
+...
+
+
+Successfully built esp-windows-curses
+Installing collected packages: esp-windows-curses
+  Attempting uninstall: esp-windows-curses
+    Found existing installation: esp-windows-curses 0.1
+    Uninstalling esp-windows-curses-0.1:
+      Successfully uninstalled esp-windows-curses-0.1
+Successfully installed esp-windows-curses-0.1
+All done! You can now run:
+   export.bat
+```
+
+Если всё настроено правильно, увидим что-то такое:
+
+
+```
+C:\Users\grand\espressif\esp-idf>.\export.bat
+Setting IDF_PATH: C:\Users\grand\espressif\esp-idf
+
+Adding ESP-IDF tools to PATH...
+No directories added to PATH:
+
+C:\Users\grand\.espressif\tools\xtensa-esp32-elf\esp-2021r1-8.4.0\xtensa-esp32-elf\bin;C:\Users\grand\.espressif\tools\xtensa-esp32s2-elf\esp-2021r1-8.4.0\xtensa-esp32s2-elf\bin;C:\Users\grand\.espressif\tools\xtensa-esp32s3-elf\esp-2021r1-8.4.0\xtensa-esp32s3-elf\bin;C:\Users\grand\.espressif\tools\riscv32-esp-elf\esp-2021r1-8.4.0\riscv32-esp-elf\bin;C:\Users\grand\.espressif\tools\esp32ulp-elf\2.28.51-esp-20191205\esp32ulp-elf-binutils\bin;C:\Users\grand\.espressif\tools\esp32s2ulp-elf\2.28.51-esp-20191205\esp32s2ulp-elf-binutils\bin;C:\Users\grand\.espressif\tools\cmake\3.20.3\bin;C:\Users\grand\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210721\openocd-esp32\bin;C:\Users\grand\.espressif\tools\idf-exe\1.0.1\;C:\Users\grand\.espressif\tools\ccache\4.3\ccache-4.3-windows-64;C:\Users\grand\.espressif\tools\dfu-util\0.9\dfu-util-0.9-win64;C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env\Scripts;C:\Users\grand\espressif\esp-idf\tools;C:\ActiveTcl\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\Calibre2\;C:\Program Files\PuTTY\;C:\Program Files\MiKTeX\miktex\bin\x64\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;C:\Program Files\Microchip\xc8\v2.31\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Utils\;C:\Program Files\dotnet\;C:\Program Files\Python39\;C:\Program Files\Notepad++;C:\Program Files\Git\cmd;C:\Users\grand\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Python39;C:\Program Files\Git\bin;;C:\Users\grand\AppData\Local\Programs\Microsoft VS Code\bin
+
+Checking if Python packages are up to date...
+Python requirements from C:\Users\grand\espressif\esp-idf\requirements.txt are satisfied.
+
+Done! You can now compile ESP-IDF projects.
+Go to the project directory and run:
+
+  idf.py build
+
+```
+
 6. После того, как всё установилось, запускаем ```.\export.bat``` и можем запустить для проверки сборку примера **Hello World**:
 
 
