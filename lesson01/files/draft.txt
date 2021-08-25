@@ -1,0 +1,426 @@
+
+
+DedaPikhto
+Чуть подробнее о настройке среды разработки esp-idf
+Часть I. Консоль
+Статей о настройке IDE Visual Studio Code & Eclipse под Linux & Windows написано уже много. В принципе, с точностью до небольших деталей, они повторяют друг-друга. Эта заметка, в общем, не исключение.
+
+Отличие лишь в том, что и Eclipse и Visual Studio Code будут использовать единожды установленные Espressif Framework и набор инструментов — toolchain. Всегда раздражало, что каждая установка плагинов https://github.com/espressif/vscode-esp-idf-extension и https://github.com/espressif/idf-eclipse-plugin «тащит» за собой новую установку пакета ESP-IDF и TOOLCHAIN. В сумме, 3.3 Гб, между прочим.
+
+Linux
+Для примера, использую Ubuntu 21.04. Во-первых, классическое начало для deb систем:
+
+1
+sudo apt update
+2
+sudo apt upgrade
+3
+sudo apt install python3-pip git cmake ninja-build
+Ну или установить cmake и ninja, используя snap
+
+Для полноценной работы esp-idf должны быть установлены git, python3 и pip3. Причём, для полноценной работы среды esp-idf надо, чтобы python вызывался, как python, а не python3 или python3.9 и т.д. Скажем, в Ubuntu 18.04, 20.10, 21.04 такой команды, как python изначально нет. Есть python3. Так, что надо либо сделать мягкую ссылку:
+
+1
+mkdir ~/.local/bin
+2
+ln -sf /usr/bin/python3 ~/.local/bin/python
+3
+source ~/.profile
+Либо создать Python Virtual Environment (https://docs.python.org/3/tutorial/venv.html)
+
+1
+python3 -m venv ~/python/python3
+2
+code ~/python/python3/bin/activate
+Последний способ чуть сложнее, но даже в создании мягкой ссылки есть забавный подвох: если Вы не создали каталог ~/.local/bin, то .profile его не «подхватит», потому, что в скрипте профиле есть такой код:
+
+1
+if [ -d "$HOME/.local/bin" ] ; then
+2
+  PATH="$PATH:$HOME/.local/bin"
+3
+fi
+Иными словами, если этот каталог не создан, его в пути и не будет. После создания каталога, нужно вызвать source ~/.profile
+
+Проверим себя:
+
+1
+$python
+2
+Python 3.8.10 (default, Jun  2 2021, 10:49:15)
+3
+[GCC 9.4.0] on linux
+4
+Type "help", "copyright", "credits" or "license" for more information.
+5
+>>> quit()
+Всё работает. Скачиваем esp-idf. Предпочитаю установить фреймворк в какой-нибудь каталог, вроде ~/espressif. Во-первых, фреймворков разработки Esp32, аж целых три, во-вторых, чтобы не засорять «корневое» пространство пользовательского каталога.
+
+1
+mkdir ~/espressif
+2
+cd ~/espressif
+3
+git clone https://github.com/espressif/esp-idf.git --recursive
+Имеет смысл сразу добавить в какой-нибудь из пользовательских загрузку переменных окружения esp-idf. Переменные ADF_PATH и MDF_PATH предусмотрены на тот случай, если Вы захотите работать на Esp32 со звуком или создавать самоорганизующиеся сети из нескольких плат Esp32.
+
+Скрипт добавляет алиас idfexp. Так удобнее превращать текущую консоль в среду IDF-разработки, чтобы не набирать, скажем каждый раз ~/espressif/esp-idf/export.sh
+
+1
+# Скрипт для экспорта окружения esp-idf, esp-adf, esp-mdf
+2
+#
+3
+ESP_PATH="$HOME/espressif"
+4
+IDF_TOOLS_PATH="$HOME/.espressif"
+5
+​
+6
+if [ -d "$ESP_PATH/esp-idf" ] ; then
+7
+  IDF_PATH="$ESP_PATH/esp-idf"
+8
+  export IDF_PATH
+9
+  if [ -f "$IDF_PATH/export.sh" ] ; then
+10
+    alias idfexp="\. $IDF_PATH/export.sh"
+11
+  fi
+12
+fi
+13
+​
+14
+if [ -f "$ESP_PATH/esp-adf" ] ; then
+15
+  ADF_PATH="$ESP_PATH/esp-adf"
+16
+  export ADF_PATH
+17
+fi
+18
+​
+19
+if [ -f "$ESP_PATH/esp-mdf" ] ; then
+20
+  MDF_PATH="$ESP_PATH/esp-mdf"
+21
+  export MDF_PATH
+22
+fi
+23
+​
+24
+if [ -d "$IDF_TOOLS_PATH" ] ; then
+25
+  export IDF_TOOLS_PATH
+26
+fi
+Можно добавить автоматическую загрузку скрипта через любой актуальный ~/.*rc-файл. Например, добавить в ~/.bashrc (\. необходим, поскольку, разрешения .*rc-файлов 0644):
+
+1
+if [ -f "$HOME/.idfrc" ]; then
+2
+        \. "$HOME/.idfrc" # This load Espressif environment 
+3
+fi
+Далее, осталось установить набор инструментария для сборки проектов. По умолчанию toolchain будет установлен в ~/.espressif
+
+1
+cd ~/espressif
+2
+cd esp-idf
+3
+./install.sh
+Если всё прошло удачно, то увидим что-то такое:
+
+
+Скрытый текст
+$ ./install.sh 
+
+
+
+WARNING: You are using pip version 21.2.3; however, version 21.2.4 is available. You should consider upgrading via the '/home/grandfatherpikhto/.espressif/python_env/idf4.4_py3.8_env/bin/python -m pip install --upgrade pip' command. All done! You can now run:
+
+  . ./export.sh
+
+Обратите внимание, что предлагается обновить venv:
+
+1
+WARNING: You are using pip version 21.2.3; however, version 21.2.4 is available.
+2
+You should consider upgrading via the '/home/grandfatherpikhto/.espressif/python_env/idf4.4_py3.8_env/bin/python -m pip install --upgrade pip' command.
+Обновляем:
+
+1
+~/.espressif/python_env/idf4.4_py3.8_env/bin/python -m pip install --upgrade pip pip
+Размер esp-idf приблизительно 2.2 Гб, toolchain — 1.2 Гб. Ну, так на минуточку.
+
+1
+$du -hs ~/espressif/esp-idf
+2
+1.1G    esp-idf
+3
+$du -hs ~/.espressif
+4
+1.9G    .espressif
+После установки toolchain можно вызвать source ~/.idfrc и подгрузить переменные окружения ESP-IDF командой idfexp или
+
+1
+. ~/espressif/esp-idf/export.sh
+Если всё пошло правильно, должны увидеть что-то такое:
+
+
+Скрытый текст
+$ idfexp Detecting the Python interpreter Checking "python" ... Python 3.8.10 "python" has been detected Adding ESP-IDF tools to PATH... Using Python interpreter in /home/grandfatherpikhto/.espressif/python_env/idf4.4_py3.8_env/bin/python Checking if Python packages are up to date... Python requirements from /home/grandfatherpikhto/espressif/esp-idf/requirements.txt are satisfied. Added the following directories to PATH:   /home/grandfatherpikhto/espressif/esp-idf/components/esptool_py/esptool   /home/grandfatherpikhto/espressif/esp-idf/components/espcoredump   /home/grandfatherpikhto/espressif/esp-idf/components/partition_table   /home/grandfatherpikhto/espressif/esp-idf/components/app_update   /home/grandfatherpikhto/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin   /home/grandfatherpikhto/.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0/xtensa-esp32s2-elf/bin   /home/grandfatherpikhto/.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0/xtensa-esp32s3-elf/bin   /home/grandfatherpikhto/.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0/riscv32-esp-elf/bin   /home/grandfatherpikhto/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin   /home/grandfatherpikhto/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin   /home/grandfatherpikhto/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721/openocd-esp32/bin   /home/grandfatherpikhto/.espressif/python_env/idf4.4_py3.8_env/bin   /home/grandfatherpikhto/espressif/esp-idf/tools Done! You can now compile ESP-IDF projects. Go to the project directory and run:
+
+  idf.py build
+
+В принципе, можно приступить к сборке и прошивке какого-нибудь проекта из каталога ~/espressif/esp-idf/examples, но сначала надо настроить udev:
+
+su
+1
+sudo su
+2
+cp 40-dfuse.rules /etc/udev/rules.d/
+3
+systemctl restart udev.service
+4
+udevadm control --reload-rules
+Ниже привожу «сборную солянку» файла 40-dfuse.rules из правил, которую удалось накопать на форуме Esp32 (https://www.esp32.com/). Думаю, в особых объяснениях этот файл не нуждается. Просто, коллекция idVendor и idProduct различных макетных плат Esp32
+
+1
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
+2
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+3
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+4
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+5
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+Теперь, можно собрать и запустить какой-нибудь простой проект Esp32. Не забудьте подключить макетную плату Esp32 к компьютеру. Если она уже была подключена, отключите и подключите снова. Иначе, правила udev не будут прочитаны для этого устройства.
+
+У меня макетная плата ESP32-WROOM. Попробуем собрать и прошить ~/espressif/esp-idf/examples/get-started/hello_world. Обратите внимание, что, в принципе надо указывать порт. Например, idf.py -p /dev/ttyUSB0 flash. Но, на самом деле, это не обязательно. idf.py попробует найти порт, к которому подключено устройство Esp32 и прошьёт первое обнаруженное.
+
+1
+cd ~/espressif/esp-idf/examples/get-started/hello_world
+2
+idf.py build
+3
+idf.py flash
+4
+idf.py monitor
+Если всё получилось хорошо, увидим что-то вроде:
+
+
+Скрытый текст
+C:\Users\grand\espressif\esp-idf\examples\get-started\hello_world>idf.py monitor -p COM3 Executing action: monitor Running idf_monitor in directory c:\users\grand\espressif\esp-idf\examples\get-started\hello_world Executing "C:\Users\grand.espressif\python_env\idf4.4_py3.9_env\Scripts\python.exe C:\Users\grand\espressif\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 c:\users\grand\espressif\esp-idf\examples\get-started\hello_world\build\hello-world.elf -m 'C:\Users\grand.espressif\python_env\idf4.4_py3.9_env\Scripts\python.exe' 'C:\Users\grand\espressif\esp-idf\tools\idf.py'"... [0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m [0;33m--- Using \.\COM3 instead...[0m --- idf_monitor on \.\COM3 115200 --- --- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H --- ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT) configsip: 0, SPIWP:0xee clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00 mode:DIO, clock div:2 load:0x3fff0030,len:6400 load:0x40078000,len:14252 load:0x40080400,len:3820 0x40080400: _init at ??:?
+
+entry 0x40080698 I (27) boot: ESP-IDF v4.4-dev-2594-ga20df743f1 2nd stage bootloader I (27) boot: compile time 18:30:32 I (27) boot: chip revision: 1 I (32) boot_comm: chip revision: 1, min. bootloader chip revision: 0 I (39) boot.esp32: SPI Speed      : 40MHz I (43) boot.esp32: SPI Mode       : DIO I (48) boot.esp32: SPI Flash Size : 2MB I (52) boot: Enabling RNG early entropy source... I (58) boot: Partition Table: I (61) boot: ## Label            Usage          Type ST Offset   Length I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000 I (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000 I (84) boot:  2 factory          factory app      00 00 00010000 00100000 I (91) boot: End of partition table I (95) boot_comm: chip revision: 1, min. application chip revision: 0 I (102) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=073ech ( 29676) map I (122) esp_image: segment 1: paddr=00017414 vaddr=3ffb0000 size=02374h (  9076) load I (125) esp_image: segment 2: paddr=00019790 vaddr=40080000 size=06888h ( 26760) load I (139) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14808h ( 83976) map I (169) esp_image: segment 4: paddr=00034830 vaddr=40086888 size=044f8h ( 17656) load I (177) esp_image: segment 5: paddr=00038d30 vaddr=50000000 size=00010h (    16) load I (183) boot: Loaded app from partition at offset 0x10000 I (183) boot: Disabling RNG early entropy source... I (198) cpu_start: Pro cpu up. I (198) cpu_start: Starting app cpu, entry point is 0x40080fb4 0x40080fb4: call_start_cpu1 at C:/Users/grand/espressif/esp-idf/components/esp_system/port/cpu_start.c:156
+
+I (0) cpu_start: App cpu up. I (212) cpu_start: Pro cpu start user code I (212) cpu_start: cpu freq: 160000000 I (212) cpu_start: Application information: I (217) cpu_start: Project name:     hello-world I (222) cpu_start: App version:      v4.4-dev-2594-ga20df743f1 I (229) cpu_start: Compile time:     Aug 24 2021 18:30:16 I (235) cpu_start: ELF file SHA256:  81fe5dc0cf4f0d16... I (241) cpu_start: ESP-IDF:          v4.4-dev-2594-ga20df743f1 I (248) heap_init: Initializing. RAM available for dynamic allocation: I (255) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM I (261) heap_init: At 3FFB2C50 len 0002D3B0 (180 KiB): DRAM I (267) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM I (273) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM I (280) heap_init: At 4008AD80 len 00015280 (84 KiB): IRAM I (287) spi_flash: detected chip: generic I (291) spi_flash: flash io: dio W (294) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header. I (309) cpu_start: Starting scheduler on PRO CPU. I (0) cpu_start: Starting scheduler on APP CPU. Hello world! This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash Minimum free heap size: 294440 bytes Restarting in 10 seconds... Restarting in 9 seconds... Restarting in 8 seconds... Restarting in 7 seconds... Restarting in 6 seconds... Restarting in 5 seconds... Restarting in 4 seconds... Restarting in 3 seconds... Restarting in 2 seconds... Restarting in 1 seconds... Restarting in 0 seconds... Restarting now. ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT) configsip: 0, SPIWP:0xee clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00 mode:DIO, clock div:2 load:0x3fff0030,len:6400 load:0x40078000,len:14252 load:0x40080400,len:3820 0x40080400: _init at ??:?
+
+entry 0x40080698 I (27) boot: ESP-IDF v4.4-dev-2594-ga20df743f1 2nd stage bootloader I (27) boot: compile time 18:30:32 I (27) boot: chip revision: 1 I (31) boot_comm: chip revision: 1, min. bootloader chip revision: 0 I (39) boot.esp32: SPI Speed      : 40MHz I (43) boot.esp32: SPI Mode       : DIO I (48) boot.esp32: SPI Flash Size : 2MB I (52) boot: Enabling RNG early entropy source... I (58) boot: Partition Table: I (61) boot: ## Label            Usage          Type ST Offset   Length I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000 I (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000 I (83) boot:  2 factory          factory app      00 00 00010000 00100000 I (91) boot: End of partition table I (95) boot_comm: chip revision: 1, min. application chip revision: 0 I (102) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=073ech ( 29676) map I (122) esp_image: segment 1: paddr=00017414 vaddr=3ffb0000 size=02374h (  9076) load I (125) esp_image: segment 2: paddr=00019790 vaddr=40080000 size=06888h ( 26760) load I (139) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14808h ( 83976) map I (169) esp_image: segment 4: paddr=00034830 vaddr=40086888 size=044f8h ( 17656) load I (177) esp_image: segment 5: paddr=00038d30 vaddr=50000000 size=00010h (    16) load I (183) boot: Loaded app from partition at offset 0x10000 I (183) boot: Disabling RNG early entropy source... I (198) cpu_start: Pro cpu up. I (198) cpu_start: Starting app cpu, entry point is 0x40080fb4 0x40080fb4: call_start_cpu1 at C:/Users/grand/espressif/esp-idf/components/esp_system/port/cpu_start.c:156
+
+I (185) cpu_start: App cpu up. I (213) cpu_start: Pro cpu start user code I (213) cpu_start: cpu freq: 160000000 I (213) cpu_start: Application information: I (217) cpu_start: Project name:     hello-world I (222) cpu_start: App version:      v4.4-dev-2594-ga20df743f1 I (229) cpu_start: Compile time:     Aug 24 2021 18:30:16 I (235) cpu_start: ELF file SHA256:  81fe5dc0cf4f0d16... I (241) cpu_start: ESP-IDF:          v4.4-dev-2594-ga20df743f1 I (248) heap_init: Initializing. RAM available for dynamic allocation: I (255) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM I (261) heap_init: At 3FFB2C50 len 0002D3B0 (180 KiB): DRAM I (267) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM I (273) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM I (280) heap_init: At 4008AD80 len 00015280 (84 KiB): IRAM I (287) spi_flash: detected chip: generic I (291) spi_flash: flash io: dio W (295) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header. I (309) cpu_start: Starting scheduler on PRO CPU. I (0) cpu_start: Starting scheduler on APP CPU. Hello world! This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash Minimum free heap size: 294440 bytes Restarting in 10 seconds... Restarting in 9 seconds... Restarting in 8 seconds...
+
+Т.е., программа «Здравствуй Мир!» считывает параметры MCU, печатает их и начинает обратный отсчёт с периодом в одну секунду. Когда доходит до нуля, перезагружает процессор.
+
+Windows
+Обратите внимание, что %USERPROFILE% (Путь к домашнему каталогу пользователя) не должен содержать пробелов. Иначе, esp-idf просто не запустится. Если путь содержит пробелы, устанавливайте куда-нибудь ещё. Например, на другой диск или в корневой каталог диска C:\
+
+Обычно, git.exe (https://git-scm.com/downloads) устанавливается в каталог %ProgramFiles%/git/bin. python.exe (на момент написания актуальна версия Python3.9 — https://www.python.org/downloads/, Обычно, находится в каталоге %ProgramFiles%/Python39 ) 
+
+Не стоит устанавливать пакеты ninja и cmake. Пакет установки Windows «вытянет» сам нужные версии и установит их локально.
+
+Необходимо сразу проверить, чтобы git и python были уже прописаны в Path. Можно глобально, можно локально:
+
+Также, под Windows, можно сразу прописать переменную IDF_PATH. Обычно, устанавливаю esp-idf в %USERPROFILE%\espressif. Можно сразу добавить IDF_TOOLS_PATH. По умолчанию, esp-idf toolchain (инструментарий) установится в каталог %USERPROFILE%/.espressif. Для ускорения настройки vscode-esp-idf-extension можно ещё добавить переменную IDF_PATH_ENV_PATH — путь к каталогу, куда устанавливается python venv для работы esp-idf. На данный момент  IDF_PYTHON_ENV_PATH=%USERPROFILE%\.espressif\python_env\idf4.4_py3.9_env. Проблема в том, что с каждой новой версией Python и ESP-IDF этот путь будет меняться.
+
+Для установки под Windows не стоит использовать PowerShell, поскольку, скрипт export.bat из пакета не сможет экспортировать переменные окружения.
+
+
+Находим в настройках Windows изменение системных/пользовательских переменных среды
+
+Настраиваем переменные окружения для ESP-IDF, чтобы плагин VSCode мог бы «подхватить» уже настроенный пакет
+1
+git clone https://github.com/espressif/esp-idf --recursive
+
+Скрытый текст
+C:\Users\grand\espressif\esp-idf\examples\get-started\hello_world>idf.py build Executing action: all (aliases: build) Running cmake in directory c:\users\grand\espressif\esp-idf\examples\get-started\hello_world\build Executing "cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DESP_PLATFORM=1 -DIDF_TARGET=esp32 -DCCACHE_ENABLE=1 c:\users\grand\espressif\esp-idf\examples\get-started\hello_world"
+
+
+
+Project build complete. To flash, run this command: C:\Users\grand.espressif\python_env\idf4.4_py3.9_env\Scripts\python.exe ......\components\esptool_py\esptool\esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset --chip esp32  write_flash --flash_mode dio --flash_size detect --flash_freq 40m 0x1000 build\bootloader\bootloader.bin 0x8000 build\partition_table\partition-table.bin 0x10000 build\hello-world.bin or run 'idf.py -p (PORT) flash'
+
+Прошиваем устройство:
+
+1
+idf.py flash
+Если всё прошло успешно, увидим что-то вроде (вывод консоли сокращён)
+
+
+Скрытый текст
+$idf.py flash
+
+Compressed 167280 bytes to 88448... Writing at 0x00010000... (16 %) Writing at 0x0001ae15... (33 %) Writing at 0x00020647... (50 %) Writing at 0x00025e10... (66 %) Writing at 0x0002e419... (83 %) Writing at 0x00036831... (100 %) Wrote 167280 bytes (88448 compressed) at 0x00010000 in 2.3 seconds (effective 579.2 kbit/s)... Hash of data verified. Compressed 3072 bytes to 103... Writing at 0x00008000... (100 %) Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 428.1 kbit/s)... Hash of data verified.
+
+Leaving... Hard resetting via RTS pin... Done
+
+Запускаем отладочный терминал:
+
+idf.py monitor
+1
+idf.py monitor
+И смотрим на сообщения журналирования ESP32:
+
+
+Скрытый текст
+C:\Users\grand\espressif\esp-idf\examples\get-started\hello_world>idf.py monitor -p COM3 Executing action: monitor Running idf_monitor in directory c:\users\grand\espressif\esp-idf\examples\get-started\hello_world Executing "C:\Users\grand.espressif\python_env\idf4.4_py3.9_env\Scripts\python.exe C:\Users\grand\espressif\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 c:\users\grand\espressif\esp-idf\examples\get-started\hello_world\build\hello-world.elf -m 'C:\Users\grand.espressif\python_env\idf4.4_py3.9_env\Scripts\python.exe' 'C:\Users\grand\espressif\esp-idf\tools\idf.py'"... [0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m [0;33m--- Using \.\COM3 instead...[0m --- idf_monitor on \.\COM3 115200 --- --- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H --- ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT) configsip: 0, SPIWP:0xee clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00 mode:DIO, clock div:2 load:0x3fff0030,len:6400 load:0x40078000,len:14252 load:0x40080400,len:3820 0x40080400: _init at ??:?
+
+entry 0x40080698 I (27) boot: ESP-IDF v4.4-dev-2594-ga20df743f1 2nd stage bootloader I (27) boot: compile time 18:30:32 I (27) boot: chip revision: 1 I (32) boot_comm: chip revision: 1, min. bootloader chip revision: 0 I (39) boot.esp32: SPI Speed      : 40MHz I (43) boot.esp32: SPI Mode       : DIO I (48) boot.esp32: SPI Flash Size : 2MB I (52) boot: Enabling RNG early entropy source... I (58) boot: Partition Table: I (61) boot: ## Label            Usage          Type ST Offset   Length I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000 I (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000 I (84) boot:  2 factory          factory app      00 00 00010000 00100000 I (91) boot: End of partition table I (95) boot_comm: chip revision: 1, min. application chip revision: 0 I (102) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=073ech ( 29676) map I (122) esp_image: segment 1: paddr=00017414 vaddr=3ffb0000 size=02374h (  9076) load I (125) esp_image: segment 2: paddr=00019790 vaddr=40080000 size=06888h ( 26760) load I (139) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14808h ( 83976) map I (169) esp_image: segment 4: paddr=00034830 vaddr=40086888 size=044f8h ( 17656) load I (177) esp_image: segment 5: paddr=00038d30 vaddr=50000000 size=00010h (    16) load I (183) boot: Loaded app from partition at offset 0x10000 I (183) boot: Disabling RNG early entropy source... I (198) cpu_start: Pro cpu up. I (198) cpu_start: Starting app cpu, entry point is 0x40080fb4 0x40080fb4: call_start_cpu1 at C:/Users/grand/espressif/esp-idf/components/esp_system/port/cpu_start.c:156
+
+I (0) cpu_start: App cpu up. I (212) cpu_start: Pro cpu start user code I (212) cpu_start: cpu freq: 160000000 I (212) cpu_start: Application information: I (217) cpu_start: Project name:     hello-world I (222) cpu_start: App version:      v4.4-dev-2594-ga20df743f1 I (229) cpu_start: Compile time:     Aug 24 2021 18:30:16 I (235) cpu_start: ELF file SHA256:  81fe5dc0cf4f0d16... I (241) cpu_start: ESP-IDF:          v4.4-dev-2594-ga20df743f1 I (248) heap_init: Initializing. RAM available for dynamic allocation: I (255) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM I (261) heap_init: At 3FFB2C50 len 0002D3B0 (180 KiB): DRAM I (267) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM I (273) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM I (280) heap_init: At 4008AD80 len 00015280 (84 KiB): IRAM I (287) spi_flash: detected chip: generic I (291) spi_flash: flash io: dio W (294) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header. I (309) cpu_start: Starting scheduler on PRO CPU. I (0) cpu_start: Starting scheduler on APP CPU. Hello world! This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash Minimum free heap size: 294440 bytes Restarting in 10 seconds... Restarting in 9 seconds... Restarting in 8 seconds... Restarting in 7 seconds... Restarting in 6 seconds... Restarting in 5 seconds... Restarting in 4 seconds... Restarting in 3 seconds... Restarting in 2 seconds... Restarting in 1 seconds... Restarting in 0 seconds... Restarting now. ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT) configsip: 0, SPIWP:0xee clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00 mode:DIO, clock div:2 load:0x3fff0030,len:6400 load:0x40078000,len:14252 load:0x40080400,len:3820 0x40080400: _init at ??:?
+
+entry 0x40080698 I (27) boot: ESP-IDF v4.4-dev-2594-ga20df743f1 2nd stage bootloader I (27) boot: compile time 18:30:32 I (27) boot: chip revision: 1 I (31) boot_comm: chip revision: 1, min. bootloader chip revision: 0 I (39) boot.esp32: SPI Speed      : 40MHz I (43) boot.esp32: SPI Mode       : DIO I (48) boot.esp32: SPI Flash Size : 2MB I (52) boot: Enabling RNG early entropy source... I (58) boot: Partition Table: I (61) boot: ## Label            Usage          Type ST Offset   Length I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000 I (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000 I (83) boot:  2 factory          factory app      00 00 00010000 00100000 I (91) boot: End of partition table I (95) boot_comm: chip revision: 1, min. application chip revision: 0 I (102) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=073ech ( 29676) map I (122) esp_image: segment 1: paddr=00017414 vaddr=3ffb0000 size=02374h (  9076) load I (125) esp_image: segment 2: paddr=00019790 vaddr=40080000 size=06888h ( 26760) load I (139) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14808h ( 83976) map I (169) esp_image: segment 4: paddr=00034830 vaddr=40086888 size=044f8h ( 17656) load I (177) esp_image: segment 5: paddr=00038d30 vaddr=50000000 size=00010h (    16) load I (183) boot: Loaded app from partition at offset 0x10000 I (183) boot: Disabling RNG early entropy source... I (198) cpu_start: Pro cpu up. I (198) cpu_start: Starting app cpu, entry point is 0x40080fb4 0x40080fb4: call_start_cpu1 at C:/Users/grand/espressif/esp-idf/components/esp_system/port/cpu_start.c:156
+
+I (185) cpu_start: App cpu up. I (213) cpu_start: Pro cpu start user code I (213) cpu_start: cpu freq: 160000000 I (213) cpu_start: Application information: I (217) cpu_start: Project name:     hello-world I (222) cpu_start: App version:      v4.4-dev-2594-ga20df743f1 I (229) cpu_start: Compile time:     Aug 24 2021 18:30:16 I (235) cpu_start: ELF file SHA256:  81fe5dc0cf4f0d16... I (241) cpu_start: ESP-IDF:          v4.4-dev-2594-ga20df743f1 I (248) heap_init: Initializing. RAM available for dynamic allocation: I (255) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM I (261) heap_init: At 3FFB2C50 len 0002D3B0 (180 KiB): DRAM I (267) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM I (273) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM I (280) heap_init: At 4008AD80 len 00015280 (84 KiB): IRAM I (287) spi_flash: detected chip: generic I (291) spi_flash: flash io: dio W (295) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header. I (309) cpu_start: Starting scheduler on PRO CPU. I (0) cpu_start: Starting scheduler on APP CPU. Hello world! This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash Minimum free heap size: 294440 bytes Restarting in 10 seconds... Restarting in 9 seconds... Restarting in 8 seconds...
+
+Система мониторинга Esp32 настолько мощная, что в использовании отладчика, как правило нет необходимости.
+
+Что выгодно отличает Esp32 от собратьев STM32 или ATmega, это дешевизна отладчика. Бюджетная плата  FT2232HL обойдётся в районе одной тысячи рублей.
+
+В принципе, если не претендовать на полнофункциональную Интегрированную Среду Разработки, фреймворк готов к работе. Редактировать исходный код примера ~/espressif/esp-idf/examples/get-started/hello_world/main/hello_world_main.c можно хоть при помощи emacs, хоть при помощи vim. 
+
+Но, во-первых, править примеры в исходном коде фреймоврка — mauvais ton, нужно хотя бы скопировать этот пример куда-нибудь; во-вторых esp-idf прекрасно «сотрудничает» с Visual Studio Code и Eclipse.
+
+Часть II. Установка Visual Studio Code
+Если Вы не установили VSCode глобально при помощи какого-нибудь пакетного менеджера, стоит скачать дистрибутив c https://code.visualstudio.com/download.
+
+Под Windows User Installer, для Linux .tar.gz архив.
+
+Под Linux можем распаковать архив куда-нибудь вроде каталога ~/IDE
+
+4.tar.gz 
+1
+mkdir ~/IDE
+2
+cd ~/IDE
+3
+cp ~/Загрузки/code-stable-x64-xxxxx.tar.gz ~/IDE/
+4
+tar -zxvf code-stable-x64.tar.gz 
+Нужно сделать «мягкую» ссылку на ~/IDE/VSCode-linux-x64/bin/code в ~/.local/bin. Причём, ссылка должна быть именно «мягкой», иначе, code при вызове из командной строки будет искать сопутствующие библиотеки в каталоге вызова ~/.local/bin. Удивительно, но их там нет.
+
+~/.local/bin/code
+1
+ln -sf ~/IDE/VSCode-linux-x64/bin/code ~/.local/bin/code
+Если GNOME desktop, неплохо создать *.desktop файл в каталоге ~/.local/share/applications/vscode.desktop (видит только пользователь) или /usr/share/applications/vscode.desktop. Не забудьте заменить ${HOME} на путь к домашнему каталогу. destop-парсер переменных окружения не понимает!
+
+
+Язык
+​
+1
+[Desktop Entry]
+2
+Type=Application
+3
+Exec="${HOME}/IDE/VSCode-linux-x64/bin/code" %F
+4
+Name=VSCode
+5
+GenericName=The Microsoft IDE for C/C++, Javascript, Python e.t.c. development.
+6
+Icon=${HOME}/IDE/VSCode-linux-x64/resources/app/resources/linux/code.png
+7
+StartupWMClass=code
+8
+Terminal=false
+9
+Categories=Development;IDE;C/C++;Python;Java;Java Script;Node;NodeJS
+10
+MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;
+11
+​
+
+
+
+Готово к публикации Сохранено в 19:59
+ХАБР ИЩЕТ АВТОРОВ
+Мы ищем авторов в контент-студию — помогать компаниям делать крутые статьи для техноблогов и мегапроекты.
+
+Хотите писать не только на Хабр, но и для Хабра? Давайте познакомимся!
+
+НОВЫЙ РЕДАКТОР
+Это новый WYSIWYG-редактор, в котором по умолчанию будут создаваться все новые посты.
+
+Подробнее о работе нового редактора можно узнать в этом разделе.
+
+Старый редактор доступен по ссылке, но скоро его поддержка прекратится.
+
+О ПЕСОЧНИЦЕ
+Это «Песочница» — раздел, в который попадают дебютные посты пользователей, желающих стать полноправными участниками сообщества.
+
+Если у вас есть приглашение, отправьте его автору понравившейся публикации — тогда её смогут прочитать и обсудить все остальные пользователи Хабра.
+
+Чтобы исключить предвзятость при оценке, все публикации анонимны, псевдонимы показываются случайным образом.
+ПАМЯТКА АВТОРУ
+Соблюдайте правила сайта
+Следуйте советам и заботливо оформляйте посты
+Используйте хаб «Я пиарюсь» для рекламных постов
+Загружайте картинки меньше 8МБ для тела поста и меньше 1МБ для обложки поста
+О МОДЕРАЦИИ
+Не надо пропускать:
+
+рекламные и PR-публикации
+вопросы и просьбы (для них есть Хабр Q&A);
+вакансии (используйте Хабр Карьеру)
+статьи, ранее опубликованные на других сайтах;
+статьи без правильно расставленных знаков препинания, со смайликами, с обилием восклицательных знаков, неоправданным выделением слов и предложений и другим неуместным форматированием текста;
+жалобы на компании и предоставляемые услуги;
+низкокачественные переводы;
+куски программного кода без пояснений;
+односложные статьи;
+статьи, слабо относящиеся к IT-тематике или не относящиеся к ней вовсе.
+Ваш аккаунт
+Профиль
+Трекер
+Диалоги
+Настройки
+ППА
+Разделы
+Публикации
+Новости
+Хабы
+Компании
+Авторы
+Песочница
+Информация
+Устройство сайта
+Для авторов
+Для компаний
+Документы
+Соглашение
+Конфиденциальность
+Услуги
+Реклама
+Тарифы
+Контент
+Семинары
+Мегапроекты
+Настройка языка
+О сайте
+Техническая поддержка
+Вернуться на старую версию
+© 2006–2021 «Habr»
