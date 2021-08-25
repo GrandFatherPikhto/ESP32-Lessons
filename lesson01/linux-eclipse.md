@@ -1,7 +1,13 @@
-##### Eclipse <div id="espidflinuxeclipseplugin"></div>
+[Назад](./README.md)
+
+# Eclipse <div id="espidflinuxeclipseplugin"></div>
+
 1. Скачиваем установщик *Eclipse* с https://www.eclipse.org/downloads/. Важно! Должна быть установлена *Oracle Java*: https://www.oracle.com/ru/java/technologies/javase-jre8-downloads.html
+
 2. Кладём установщик в каталог ```~/IDE/eclipse```. Его можно будет запускать повторно и в средах *GNOME*, *KDE*, *XFCE*, *MATE*, установщик создаст нужные скрипты запуска.
+
 3. Если справа сверху на иконке «бургера» появится восклицательный знак, обновляем установщик, чтобы он мог установить последние версии сборок *Eclipse*
+
 4. Устанавливаем *Eclipse developing C/C++*
 
 ![Установка Eclipse](./files/images/eclipse_installer.png)
@@ -57,3 +63,5 @@
 
 ![Сборка и прошивка проекта ESP-IDF](./files/images/eclipse_esp_idf_monitor.png)
 
+
+[Назад](./README.md)

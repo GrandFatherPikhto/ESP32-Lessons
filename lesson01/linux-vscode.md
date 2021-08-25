@@ -1,3 +1,5 @@
+[Назад](./README.md)
+
 ##### VSCode <div id="espidflinuxvscodeplugin"></div>
 
 1. Скачать *.tar.gz* архив *VSCode* с линка https://code.visualstudio.com/download
@@ -86,3 +88,5 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 
 13. Если всё прошло удачно, запустится мониторинг проекта с отображений журнала сообщений от процессора **ESP32**, передаваемых через **USB**.
 
+
+[Назад](./README.md)
