@@ -1,3 +1,5 @@
+[Назад](./README.md)
+
 ##### VSCode <div id="espidflinuxvscodeplugin"></div>
 
 1. Установка *Visual Studio Code* под *Window* мало отличается от установки *VSCode* под *Linux*.
@@ -80,3 +82,4 @@ C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env
 
 13. Если всё прошло удачно, запустится мониторинг проекта с отображений журнала сообщений от процессора **ESP32**, передаваемых через **USB**.
 
+[Назад](./README.md)

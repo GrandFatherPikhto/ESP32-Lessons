@@ -1,0 +1,113 @@
+PS C:\Users\grand> cd $env:IDF_PATH
+
+PS C:\Users\grand\espressif\esp-idf> .\install.ps1
+
+Installing ESP-IDF tools
+
+WARNING: File C:\Users\grand\.espressif\idf-env.json was not found.
+
+Creating C:\Users\grand\.espressif\idf-env.json
+
+WARNING: File C:\Users\grand\.espressif\idf-env.json can not be created.
+
+Selected targets are:
+
+Installing tools: xtensa-esp32-elf, xtensa-esp32s2-elf, xtensa-esp32s3-elf, riscv32-esp-elf, esp32ulp-elf, esp32s2ulp-elf, cmake, openocd-esp32, ninja, idf-exe, ccache, dfu-util
+
+Installing xtensa-esp32-elf@esp-2021r1-8.4.0
+
+Downloading xtensa-esp32-elf-gcc8_4_0-esp-2021r1-win64.zip to C:\Users\grand\.espressif\dist\xtensa-esp32-elf-gcc8_4_0-esp-2021r1-win64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\xtensa-esp32-elf-gcc8_4_0-esp-2021r1-win64.zip to C:\Users\grand\.espressif\tools\xtensa-esp32-elf\esp-2021r1-8.4.0
+
+Installing xtensa-esp32s2-elf@esp-2021r1-8.4.0
+
+Downloading xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-win64.zip to C:\Users\grand\.espressif\dist\xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-win64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-win64.zip to C:\Users\grand\.espressif\tools\xtensa-esp32s2-elf\esp-2021r1-8.4.0
+
+Installing xtensa-esp32s3-elf@esp-2021r1-8.4.0
+
+Downloading xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-win64.zip to C:\Users\grand\.espressif\dist\xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-win64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-win64.zip to C:\Users\grand\.espressif\tools\xtensa-esp32s3-elf\esp-2021r1-8.4.0
+
+Installing riscv32-esp-elf@esp-2021r1-8.4.0
+
+Downloading riscv32-esp-elf-gcc8_4_0-esp-2021r1-patch1-win64.zip to C:\Users\grand\.espressif\dist\riscv32-esp-elf-gcc8_4_0-esp-2021r1-patch1-win64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\riscv32-esp-elf-gcc8_4_0-esp-2021r1-patch1-win64.zip to C:\Users\grand\.espressif\tools\riscv32-esp-elf\esp-2021r1-8.4.0
+
+Installing esp32ulp-elf@2.28.51-esp-20191205
+
+Downloading binutils-esp32ulp-win32-2.28.51-esp-20191205.zip to C:\Users\grand\.espressif\dist\binutils-esp32ulp-win32-2.28.51-esp-20191205.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\binutils-esp32ulp-win32-2.28.51-esp-20191205.zip to C:\Users\grand\.espressif\tools\esp32ulp-elf\2.28.51-esp-20191205
+
+Installing esp32s2ulp-elf@2.28.51-esp-20191205
+
+Downloading binutils-esp32s2ulp-win32-2.28.51-esp-20191205.zip to C:\Users\grand\.espressif\dist\binutils-esp32s2ulp-win32-2.28.51-esp-20191205.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\binutils-esp32s2ulp-win32-2.28.51-esp-20191205.zip to C:\Users\grand\.espressif\tools\esp32s2ulp-elf\2.28.51-esp-20191205
+
+Installing cmake@3.20.3
+
+Downloading cmake-3.20.3-windows-x86_64.zip to C:\Users\grand\.espressif\dist\cmake-3.20.3-windows-x86_64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\cmake-3.20.3-windows-x86_64.zip to C:\Users\grand\.espressif\tools\cmake\3.20.3
+
+Installing openocd-esp32@v0.10.0-esp32-20210721
+
+Downloading openocd-esp32-win32-0.10.0-esp32-20210721.zip to C:\Users\grand\.espressif\dist\openocd-esp32-win32-0.10.0-esp32-20210721.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\openocd-esp32-win32-0.10.0-esp32-20210721.zip to C:\Users\grand\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210721
+
+Installing ninja@1.10.2
+
+Downloading ninja-1.10.2-win64.zip to C:\Users\grand\.espressif\dist\ninja-1.10.2-win64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\ninja-1.10.2-win64.zip to C:\Users\grand\.espressif\tools\ninja\1.10.2
+
+Installing idf-exe@1.0.1
+
+Downloading idf-exe-v1.0.1.zip to C:\Users\grand\.espressif\dist\idf-exe-v1.0.1.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\idf-exe-v1.0.1.zip to C:\Users\grand\.espressif\tools\idf-exe\1.0.1
+
+Installing ccache@4.3
+
+Downloading ccache-4.3-windows-64.zip to C:\Users\grand\.espressif\dist\ccache-4.3-windows-64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\ccache-4.3-windows-64.zip to C:\Users\grand\.espressif\tools\ccache\4.3
+
+Installing dfu-util@0.9
+
+Downloading dfu-util-0.9-win64.zip to C:\Users\grand\.espressif\dist\dfu-util-0.9-win64.zip.tmp
+
+Done
+
+Extracting C:\Users\grand\.espressif\dist\dfu-util-0.9-win64.zip to C:\Users\grand\.espressif\tools\dfu-util\0.9
+
+PS C:\Users\grand\espressif\esp-idf>

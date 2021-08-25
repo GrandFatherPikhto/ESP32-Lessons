@@ -1,0 +1,46 @@
+I (241) cpu_start: ESP-IDF:          v4.4-dev-2594-ga20df743f1
+
+I (248) heap_init: Initializing. RAM available for dynamic allocation:
+
+I (255) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+
+I (261) heap_init: At 3FFB2C50 len 0002D3B0 (180 KiB): DRAM
+
+I (267) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+
+I (273) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+
+I (280) heap_init: At 4008AD80 len 00015280 (84 KiB): IRAM
+
+I (287) spi_flash: detected chip: generic
+
+I (291) spi_flash: flash io: dio
+
+W (295) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+
+I (309) cpu_start: Starting scheduler on PRO CPU.
+
+I (0) cpu_start: Starting scheduler on APP CPU.
+
+Hello world!
+
+This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash
+
+Minimum free heap size: 294440 bytes
+
+Restarting in 10 seconds...
+
+Restarting in 9 seconds...
+
+Restarting in 8 seconds...
+
+Restarting in 7 seconds...
+
+Restarting in 6 seconds...
+
+Restarting in 5 seconds...
+
+Restarting in 4 seconds...
+
+Restarting in 3 seconds...
+
