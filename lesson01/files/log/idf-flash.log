@@ -1,0 +1,96 @@
+~/Lessons/esp32/lesson01/hello_world  $ idf.py flash -p /dev/ttyUSB0
+
+Executing action: flash
+
+Running ninja in directory /home/denis/Lessons/esp32/lesson01/hello_world/build
+
+Executing "ninja flash"...
+
+[1/5] cd /home/denis/Lessons/esp32/lesson01/hello_world/build/esp-idf/esptool_py && /home/denis/.espressif/python_env..._world/build/partition_table/partition-table.bin /home/denis/Lessons/esp32/lesson01/hello_world/build/hello-world.bin
+
+hello-world.bin binary size 0x28eb0 bytes. Smallest app partition is 0x100000 bytes. 0xd7150 bytes (84%) free.
+
+[2/5] Performing build step for 'bootloader'
+
+[1/1] cd /home/denis/Lessons/esp32/lesson01/hello_world/build/bootloader/esp-idf/esptool_py && /home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python /home/denis/espressif/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/denis/Lessons/esp32/lesson01/hello_world/build/bootloader/bootloader.bin
+
+Bootloader binary size 0x6330 bytes. 0xcd0 bytes (13%) free.
+
+[2/3] cd /home/denis/espressif/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/denis/espressif/esp...essons/esp32/lesson01/hello_world/build" -P /home/denis/espressif/esp-idf/components/esptool_py/run_serial_tool.cmake
+
+esptool.py esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 hello-world.bin 0x8000 partition_table/partition-table.bin
+
+esptool.py v3.2-dev
+
+Serial port /dev/ttyUSB0
+
+Connecting....
+
+Chip is ESP32-D0WDQ6 (revision 1)
+
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+
+Crystal is 40MHz
+
+MAC: 08:3a:f2:a9:a8:c0
+
+Uploading stub...
+
+Running stub...
+
+Stub running...
+
+Changing baud rate to 460800
+
+Changed.
+
+Configuring flash size...
+
+Flash will be erased from 0x00001000 to 0x00007fff...
+
+Flash will be erased from 0x00010000 to 0x00038fff...
+
+Flash will be erased from 0x00008000 to 0x00008fff...
+
+Compressed 25392 bytes to 15840...
+
+Writing at 0x00001000... (100 %)
+
+Wrote 25392 bytes (15840 compressed) at 0x00001000 in 0.7 seconds (effective 297.4 kbit/s)...
+
+Hash of data verified.
+
+Compressed 167600 bytes to 88662...
+
+Writing at 0x00010000... (16 %)
+
+Writing at 0x0001ae3e... (33 %)
+
+Writing at 0x000205e9... (50 %)
+
+Writing at 0x00025dcf... (66 %)
+
+Writing at 0x0002e3d4... (83 %)
+
+Writing at 0x000367a0... (100 %)
+
+Wrote 167600 bytes (88662 compressed) at 0x00010000 in 2.3 seconds (effective 595.2 kbit/s)...
+
+Hash of data verified.
+
+Compressed 3072 bytes to 103...
+
+Writing at 0x00008000... (100 %)
+
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 546.0 kbit/s)...
+
+Hash of data verified.
+
+
+
+Leaving...
+
+Hard resetting via RTS pin...
+
+Done
+

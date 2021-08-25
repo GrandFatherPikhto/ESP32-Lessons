@@ -1,0 +1,134 @@
+~/Lessons/esp32/lesson01/hello_world  $ idf.py --help
+
+Usage: idf.py [OPTIONS] COMMAND1 [ARGS]... [COMMAND2 [ARGS]...]...
+
+
+
+  ESP-IDF CLI build management tool. For commands that are not known to idf.py an attempt to execute it as a build system target will be
+
+  made.
+
+
+
+Options:
+
+  --version                       Show IDF version and exit.
+
+  --list-targets                  Print list of supported targets and exit.
+
+  -C, --project-dir PATH          Project directory.
+
+  -B, --build-dir PATH            Build directory.
+
+  -w, --cmake-warn-uninitialized / -n, --no-warnings
+
+                                  Enable CMake uninitialized variable warnings for CMake files inside the project directory. (--no-
+
+                                  warnings is now the default, and doesn't need to be specified.) The default value can be set with the
+
+                                  IDF_CMAKE_WARN_UNINITIALIZED environment variable.
+
+  -v, --verbose                   Verbose build output.
+
+  --preview                       Enable IDF features that are still in preview.
+
+  --ccache / --no-ccache          Use ccache in build. Disabled by default. The default value can be set with the IDF_CCACHE_ENABLE
+
+                                  environment variable.
+
+  -G, --generator [Ninja|Unix Makefiles]
+
+                                  CMake generator.
+
+  -D, --define-cache-entry TEXT   Create a cmake cache entry. This option can be used at most once either globally, or for one subcommand.
+
+  -b, --baud INTEGER              Baud rate for flashing. The default value can be set with the ESPBAUD environment variable. This option
+
+                                  can be used at most once either globally, or for one subcommand.
+
+  -p, --port TEXT                 Serial port. The default value can be set with the ESPPORT environment variable. This option can be used
+
+                                  at most once either globally, or for one subcommand.
+
+  --help                          Show this message and exit.
+
+
+
+Commands:
+
+  all                    Aliases: build. Build the project.
+
+  app                    Build only the app.
+
+  app-flash              Flash the app only.
+
+  bootloader             Build only bootloader.
+
+  bootloader-flash       Flash bootloader only.
+
+  build-system-targets   Print list of build system targets.
+
+  clean                  Delete build output files from the build directory.
+
+  confserver             Run JSON configuration server.
+
+  create-component       Create a new component.
+
+  create-project         Create a new project.
+
+  docs                   Open web browser with documentation for ESP-IDF
+
+  efuse_common_table     Generate C-source for IDF's eFuse fields.
+
+  efuse_custom_table     Generate C-source for user's eFuse fields.
+
+  encrypted-app-flash    Flash the encrypted app only.
+
+  encrypted-flash        Flash the encrypted project.
+
+  erase_flash            Erase entire flash chip.
+
+  erase_otadata          Erase otadata partition.
+
+  flash                  Flash the project.
+
+  fullclean              Delete the entire build directory contents.
+
+  gdb                    Run the GDB.
+
+  gdbgui                 GDB UI in default browser.
+
+  gdbtui                 GDB TUI mode.
+
+  menuconfig             Run "menuconfig" project configuration tool.
+
+  monitor                Display serial output.
+
+  openocd                Run openocd from current path
+
+  partition_table        Build only partition table.
+
+  partition_table-flash  Flash partition table only.
+
+  post_debug             Utility target to read the output of async debug action and stop them.
+
+  python-clean           Delete generated Python byte code from the IDF directory
+
+  read_otadata           Read otadata partition.
+
+  reconfigure            Re-run CMake.
+
+  set-target             Set the chip target to build.
+
+  show_efuse_table       Print eFuse table.
+
+  size                   Print basic size information about the app.
+
+  size-components        Print per-component size information.
+
+  size-files             Print per-source-file size information.
+
+  uf2                    Generate the UF2 binary with all the binaries included
+
+  uf2-app                Generate an UF2 binary for the application only
+

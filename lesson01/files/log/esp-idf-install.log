@@ -1,0 +1,230 @@
+~/espressif/esp-idf  ‹master› $ ./install.sh
+
+Detecting the Python interpreter
+
+Checking "python" ...
+
+Python 3.9.6
+
+"python" has been detected
+
+Installing ESP-IDF tools
+
+WARNING: File /home/denis/.espressif/idf-env.json was not found.
+
+Creating /home/denis/.espressif/idf-env.json
+
+WARNING: File /home/denis/.espressif/idf-env.json can not be created.
+
+Selected targets are:
+
+Installing tools: xtensa-esp32-elf, xtensa-esp32s2-elf, xtensa-esp32s3-elf, riscv32-esp-elf, esp32ulp-elf, esp32s2ulp-elf, openocd-esp32
+
+Installing xtensa-esp32-elf@esp-2021r1-8.4.0
+
+Downloading xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0
+
+Installing xtensa-esp32s2-elf@esp-2021r1-8.4.0
+
+Downloading xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0
+
+Installing xtensa-esp32s3-elf@esp-2021r1-8.4.0
+
+Downloading xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0
+
+Installing riscv32-esp-elf@esp-2021r1-8.4.0
+
+Downloading riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0
+
+Installing esp32ulp-elf@2.28.51-esp-20191205
+
+Downloading binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/dist/binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205
+
+Installing esp32s2ulp-elf@2.28.51-esp-20191205
+
+Downloading binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/dist/binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205
+
+Installing openocd-esp32@v0.10.0-esp32-20210721
+
+Downloading openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz to /home/denis/.espressif/dist/openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz.tmp
+
+Done
+
+Extracting /home/denis/.espressif/dist/openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz to /home/denis/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721
+
+Installing Python environment and packages
+
+Creating a new Python environment in /home/denis/.espressif/python_env/idf4.4_py3.9_env
+
+created virtual environment CPython3.9.6.final.0-64 in 1715ms
+
+  creator CPython3Posix(dest=/home/denis/.espressif/python_env/idf4.4_py3.9_env, clear=False, no_vcs_ignore=False, global=False)
+
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/denis/.local/share/virtualenv)
+
+    added seed packages: pip==21.2.3, setuptools==57.4.0, wheel==0.37.0
+
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator
+
+Installing Python packages from /home/denis/espressif/esp-idf/requirements.txt
+
+Looking in indexes: https://pypi.org/simple, https://dl.espressif.com/pypi
+
+Ignoring None: markers 'sys_platform == "win32"' don't match your environment
+
+Requirement already satisfied: setuptools>=21 in /home/denis/.espressif/python_env/idf4.4_py3.9_env/lib/python3.9/site-packages (from -r /home/denis/espressif/esp-idf/requirements.txt (line 4)) (57.4.0)
+
+Collecting click>=7.0
+
+  Using cached https://dl.espressif.com/pypi/click/click-8.0.1-py3-none-any.whl (97 kB)
+
+Collecting pyserial>=3.3
+
+  Using cached https://dl.espressif.com/pypi/pyserial/pyserial-3.5-py2.py3-none-any.whl (90 kB)
+
+Collecting future>=0.15.2
+
+  Using cached https://dl.espressif.com/pypi/future/future-0.18.2-py3-none-any.whl (491 kB)
+
+Collecting cryptography>=2.1.4
+
+  Using cached cryptography-3.4.8-cp36-abi3-manylinux_2_24_x86_64.whl (3.0 MB)
+
+Collecting pyparsing<2.4.0,>=2.0.3
+
+  Using cached https://dl.espressif.com/pypi/pyparsing/pyparsing-2.3.1-py2.py3-none-any.whl (61 kB)
+
+Collecting pyelftools>=0.22
+
+  Using cached https://dl.espressif.com/pypi/pyelftools/pyelftools-0.27-py2.py3-none-any.whl (151 kB)
+
+Collecting gdbgui==0.13.2.0
+
+  Using cached https://dl.espressif.com/pypi/gdbgui/gdbgui-0.13.2.0-py3-none-any.whl (878 kB)
+
+Collecting pygdbmi<=0.9.0.2
+
+  Using cached https://dl.espressif.com/pypi/pygdbmi/pygdbmi-0.9.0.2-py3-none-any.whl (16 kB)
+
+Collecting python-socketio<5
+
+  Using cached python_socketio-4.6.1-py2.py3-none-any.whl (51 kB)
+
+Collecting kconfiglib==13.7.1
+
+  Using cached https://dl.espressif.com/pypi/kconfiglib/kconfiglib-13.7.1-py2.py3-none-any.whl (145 kB)
+
+Collecting reedsolo<=1.5.4,>=1.5.3
+
+  Using cached reedsolo-1.5.4-py3-none-any.whl
+
+Collecting bitstring>=3.1.6
+
+  Using cached https://dl.espressif.com/pypi/bitstring/bitstring-3.1.9-py3-none-any.whl (38 kB)
+
+Collecting ecdsa>=0.16.0
+
+  Using cached https://dl.espressif.com/pypi/ecdsa/ecdsa-0.17.0-py2.py3-none-any.whl (119 kB)
+
+Collecting construct==2.10.54
+
+  Using cached https://dl.espressif.com/pypi/construct/construct-2.10.54-py3-none-any.whl (57 kB)
+
+Collecting Flask-Compress<2.0,>=1.4.0
+
+  Using cached Flask_Compress-1.10.1-py3-none-any.whl (7.9 kB)
+
+Collecting Flask<1.0,>=0.12.2
+
+  Using cached https://dl.espressif.com/pypi/flask/Flask-0.12.5-py2.py3-none-any.whl (81 kB)
+
+Collecting gevent<2.0,>=1.2.2
+
+  Using cached https://dl.espressif.com/pypi/gevent/gevent-1.5.0-cp39-cp39-linux_x86_64.whl (4.7 MB)
+
+Collecting Pygments<3.0,>=2.2.0
+
+  Using cached Pygments-2.10.0-py3-none-any.whl (1.0 MB)
+
+Collecting Flask-SocketIO<3.0,>=2.9
+
+  Using cached Flask_SocketIO-2.9.6-py2.py3-none-any.whl (16 kB)
+
+Collecting cffi>=1.12
+
+  Using cached cffi-1.14.6-cp39-cp39-manylinux1_x86_64.whl (405 kB)
+
+Collecting six>=1.9.0
+
+  Using cached https://dl.espressif.com/pypi/six/six-1.16.0-py2.py3-none-any.whl (11 kB)
+
+Collecting python-engineio<4,>=3.13.0
+
+  Using cached python_engineio-3.14.2-py2.py3-none-any.whl (51 kB)
+
+Collecting pycparser
+
+  Using cached https://dl.espressif.com/pypi/pycparser/pycparser-2.20-py2.py3-none-any.whl (112 kB)
+
+Collecting itsdangerous>=0.21
+
+  Using cached https://dl.espressif.com/pypi/itsdangerous/itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+
+Collecting Jinja2>=2.4
+
+  Using cached https://dl.espressif.com/pypi/jinja2/Jinja2-3.0.1-py3-none-any.whl (133 kB)
+
+Collecting Werkzeug<1.0,>=0.7
+
+  Using cached https://dl.espressif.com/pypi/werkzeug/Werkzeug-0.16.1-py2.py3-none-any.whl (327 kB)
+
+Collecting brotli
+
+  Using cached https://dl.espressif.com/pypi/brotli/Brotli-1.0.9-cp39-cp39-manylinux1_x86_64.whl (357 kB)
+
+Collecting greenlet>=0.4.14
+
+  Using cached greenlet-1.1.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (147 kB)
+
+Collecting MarkupSafe>=2.0
+
+  Using cached MarkupSafe-2.0.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (30 kB)
+
+Installing collected packages: six, MarkupSafe, Werkzeug, python-engineio, Jinja2, itsdangerous, click, python-socketio, pycparser, greenlet, Flask, brotli, Pygments, pygdbmi, gevent, Flask-SocketIO, Flask-Compress, cffi, reedsolo, pyserial, pyparsing, pyelftools, kconfiglib, gdbgui, future, ecdsa, cryptography, construct, bitstring
+
+Successfully installed Flask-0.12.5 Flask-Compress-1.10.1 Flask-SocketIO-2.9.6 Jinja2-3.0.1 MarkupSafe-2.0.1 Pygments-2.10.0 Werkzeug-0.16.1 bitstring-3.1.9 brotli-1.0.9 cffi-1.14.6 click-8.0.1 construct-2.10.54 cryptography-3.4.8 ecdsa-0.17.0 future-0.18.2 gdbgui-0.13.2.0 gevent-1.5.0 greenlet-1.1.1 itsdangerous-2.0.1 kconfiglib-13.7.1 pycparser-2.20 pyelftools-0.27 pygdbmi-0.9.0.2 pyparsing-2.3.1 pyserial-3.5 python-engineio-3.14.2 python-socketio-4.6.1 reedsolo-1.5.4 six-1.16.0
+
+WARNING: You are using pip version 21.2.3; however, version 21.2.4 is available.
+
+You should consider upgrading via the '/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python -m pip install --upgrade pip' command.
+
+All done! You can now run:
+
+
+
+  . ./export.sh
+

@@ -1,0 +1,186 @@
+~/Programs/esp32/hello_world  $ idf.py monitor -p /dev/ttyUSB0
+
+Executing action: monitor
+
+Running idf_monitor in directory /home/denis/Programs/esp32/hello_world
+
+Executing "/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python /home/denis/espressif/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/denis/Programs/esp32/hello_world/build/hello-world.elf -m '/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python' '/home/denis/espressif/esp-idf/tools/idf.py'"...
+
+--- idf_monitor on /dev/ttyUSB0 115200 ---
+
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+
+
+
+configsiets Jun  8 2016 00:22:57
+
+
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+
+configsip: 0, SPIWP:0xee
+
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+
+mode:DIO, clock div:2
+
+load:0x3fff0030,len:6724
+
+load:0x40078000,len:14780
+
+load:0x40080400,len:3792
+
+0x40080400: _init at ??:?
+
+
+
+entry 0x40080694
+
+I (27) boot: ESP-IDF v4.4-dev-2740-gf65c8249af 2nd stage bootloader
+
+I (27) boot: compile time 15:51:32
+
+I (27) boot: chip revision: 1
+
+I (32) boot_comm: chip revision: 1, min. bootloader chip revision: 0
+
+I (39) boot.esp32: SPI Speed      : 40MHz
+
+I (43) boot.esp32: SPI Mode       : DIO
+
+I (48) boot.esp32: SPI Flash Size : 2MB
+
+I (52) boot: Enabling RNG early entropy source...
+
+I (58) boot: Partition Table:
+
+I (61) boot: ## Label            Usage          Type ST Offset   Length
+
+I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+
+I (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+
+I (83) boot:  2 factory          factory app      00 00 00010000 00100000
+
+I (91) boot: End of partition table
+
+I (95) boot_comm: chip revision: 1, min. application chip revision: 0
+
+I (102) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=07444h ( 29764) map
+
+I (122) esp_image: segment 1: paddr=0001746c vaddr=3ffb0000 size=0236ch (  9068) load
+
+I (125) esp_image: segment 2: paddr=000197e0 vaddr=40080000 size=06838h ( 26680) load
+
+I (139) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=147f8h ( 83960) map
+
+I (169) esp_image: segment 4: paddr=00034820 vaddr=40086838 size=04650h ( 18000) load
+
+I (177) esp_image: segment 5: paddr=00038e78 vaddr=50000000 size=00010h (    16) load
+
+I (183) boot: Loaded app from partition at offset 0x10000
+
+I (183) boot: Disabling RNG early entropy source...
+
+I (198) cpu_start: Pro cpu up.
+
+I (198) cpu_start: Starting app cpu, entry point is 0x40080fc4
+
+0x40080fc4: call_start_cpu1 at /home/denis/espressif/esp-idf/components/esp_system/port/cpu_start.c:156
+
+
+
+I (0) cpu_start: App cpu up.
+
+I (212) cpu_start: Pro cpu start user code
+
+I (212) cpu_start: cpu freq: 160000000
+
+I (212) cpu_start: Application information:
+
+I (217) cpu_start: Project name:     hello-world
+
+I (222) cpu_start: App version:      1
+
+I (227) cpu_start: Compile time:     Aug 25 2021 15:51:27
+
+I (233) cpu_start: ELF file SHA256:  c4d32a004a5bf6b1...
+
+I (239) cpu_start: ESP-IDF:          v4.4-dev-2740-gf65c8249af
+
+I (245) heap_init: Initializing. RAM available for dynamic allocation:
+
+I (252) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+
+I (258) heap_init: At 3FFB2C48 len 0002D3B8 (180 KiB): DRAM
+
+I (265) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+
+I (271) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+
+I (278) heap_init: At 4008AE88 len 00015178 (84 KiB): IRAM
+
+I (285) spi_flash: detected chip: generic
+
+I (288) spi_flash: flash io: dio
+
+W (292) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+
+I (306) cpu_start: Starting scheduler on PRO CPU.
+
+I (0) cpu_start: Starting scheduler on APP CPU.
+
+Hello world!
+
+This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash
+
+Minimum free heap size: 294448 bytes
+
+Restarting in 10 seconds...
+
+Restarting in 9 seconds...
+
+Restarting in 8 seconds...
+
+Restarting in 7 seconds...
+
+Restarting in 6 seconds...
+
+Restarting in 5 seconds...
+
+Restarting in 4 seconds...
+
+Restarting in 3 seconds...
+
+Restarting in 2 seconds...
+
+Restarting in 1 seconds...
+
+Restarting in 0 seconds...
+
+Restarting now.
+
+ets Jun  8 2016 00:22:57
+
+
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+
+configsip: 0, SPIWP:0xee
+
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+
+mode:DIO, clock div:2
+
+load:0x3fff0030,len:6724
+
+load:0x40078000,len:14780
+
+load:0x40080400,len:3792
+
+0x40080400: _init at ??:?
+
+
+
+entry 0x40080694
+
