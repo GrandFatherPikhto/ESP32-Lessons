@@ -15,6 +15,7 @@ IDF_TOOLS_PATH=%USERPROFILE%\.espressif\esp-idf
 IDF_PYTHON_ENV_PATH=%USERPROFILE%\.espressif\python_env\idf4.4_py3.9_env
 
 Нажмём на кнопку «Пуск» и вызовем «Настройки» (шестерёнка)
+
 ![Вызвать настройки переменных окружения пользователя](./files/images/options_user_environment_variables_01.png)
 
 В строке поиска вводим слово «переменных» и видим «Настройка переменных окружения пользователя». Кликаем. Добавляем нужные переменные. Проверяем, добавлены ли в **Path** ```%ProgramFiles/Git/bin```, ```%ProgramFiles%/Python39``` (Зависит от установленной версии **Python**)
