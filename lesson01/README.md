@@ -1,16 +1,20 @@
 # Урок 1. Установка и настройка окружения esp-idf под Linux & Windows.
-1. [Espressif](#espressif)
-    1. [Почему Esp32?](#whyesp32)
-    2. [Сравненение с другими процессорами](#compare)
-    3. [Полезные ссылки](#usefullinks)
-2. [Linux](#linux)
-    1. [Установка среды разработки на Ubuntu 21.04](#espidfonlinux)
-    2. [Установка и настройка VSCode и плагина esp-idf](#espidflinuxvscodeplugin)
-    3. [Установка и настройка Eclipse и плагина esp-idf](#espidflinuxeclipseplugin)
-3. [Windows 10](#windows)
-    1. [Установка среды разработки на Windows](#espidfonwindows)
-    2. [Установка и настройка VSCode и плагина esp-idf](#espidfwinvscodeplugin)
-    3. [Установка и настройка Eclipse и плагина esp-idf](#espidfwineclipseplugin)
+- [Урок 1. Установка и настройка окружения esp-idf под Linux & Windows.](#урок-1-установка-и-настройка-окружения-esp-idf-под-linux--windows)
+  - [Espressif <div id="espressif"></div>](#espressif-div-idespressifdiv)
+    - [Почему, Esp32? <div id="whyesp32"></div>](#почему-esp32-div-idwhyesp32div)
+    - [Сравнение <div id="compare"></div>](#сравнение-div-idcomparediv)
+      - [ESP32](#esp32)
+      - [STM](#stm)
+    - [Полезные ссылки <div id="usefullinks"></div>](#полезные-ссылки-div-idusefullinksdiv)
+    - [Установка и настройка консольного инструментария esp-idf](#установка-и-настройка-консольного-инструментария-esp-idf)
+      - [Linux <div id="linux"></div>](#linux-div-idlinuxdiv)
+        - [esp-idf <div id="espidfonlinux"></div>](#esp-idf-div-idespidfonlinuxdiv)
+        - [VSCode <div id="espidflinuxvscodeplugin"></div>](#vscode-div-idespidflinuxvscodeplugindiv)
+        - [Eclipse <div id="espidflinuxeclipseplugin"></div>](#eclipse-div-idespidflinuxeclipseplugindiv)
+      - [Windows](#windows)
+        - [esp-idf](#esp-idf)
+        - [VSCode](#vscode)
+      - [Eclipse](#eclipse)
 
 ## Espressif <div id="espressif"></div>
 
@@ -64,31 +68,329 @@ Esp32 использует два процессора Xtensa с симметр�
 
 #### Linux <div id="linux"></div>
 
+На примере **Ubuntu 21.04** (с бегемотом)
+
 ##### esp-idf <div id="espidfonlinux"></div>
 
-1. Установить git 
-```sudo apt install git-all```, ```sudo snap install git```, ```sudo dnf install git-all``` и так далее.
+1. Установить git, python, ninja-build, cmake
+```console
+sudo apt install git-all python3.9 ninja-build cmake
+```
 
-2. Проверить, установлен ли python. Обычно, если python установлен, то 3.x версия, которая вызывается командой ```python3```. Если нельзя вызвать ```python```, cделать мягкую ссылку ```ln -sf /usr/bin/python3.9 ~/.local/bin/python```
-3. Создать каталог *~/espressif*, 
+1. Проверить, установлен ли ```python```. Обычно, если python установлен, то 3.x версия, которая вызывается командой ```python3```. Если нельзя вызвать ```python```, cделать мягкую ссылку ```ln -sf /usr/bin/python3.9 ~/.local/bin/python```. Важно делать именно мягкую ссылку, поскольку файл жёсткой ссылки будет искать сопутствующие необходимые библиотеки в том же каталоге, откуда он запущен.  ```python``` нужен потому, что плагины **idf-eclipse-plugin** и **idf-vscode-plugin** требуют для работы именно возможность вызова ```python```, не ```python3```, ```python3.9``` и т.д.
+2. Создать какой-нибудь каталог, куда будем складывать фреймворки *~/espressif*. Дело в том, что есть, как минимум, три фреймворка, которые, возможно Вы будете использовать. [ESP-IDF](https://github.com/espressif/esp-idf) — Espressif IoT Development Framework, [ESP-ADF](https://github.com/espressif/esp-adf) — Espressif Audio Development Framework, [ESP-MDF](https://github.com/espressif/esp-mdf) — Espressif Mesh Development Framework. Устраивать в корневом домашнем каталоге зоопарк из фреймворков не очень хочется. Итак, создали каталог, перешли в него и вызвали ```git``` с ключём *--recursive*, чтобы скачать все "подлинкованные" в репозитории дополнительные проекты.
 
-```mkdir ~/espressif```
+```console
+mkdir ~/espressif
+cd ~/espressif
+git clone https://github.com/espressif/esp-idf.git --recursive
+```
+>>>
+~/espressif  $ git clone https://github.com/espressif/esp-idf --recursive
+Клонирование в «esp-idf»…
+remote: Enumerating objects: 265284, done.
+remote: Counting objects: 100% (3872/3872), done.
+remote: Compressing objects: 100% (1844/1844), done.
+remote: Total 265284 (delta 1993), reused 3378 (delta 1860), pack-reused 261412
+Получение объектов: 100% (265284/265284), 148.87 МиБ | 10.92 МиБ/с, готово.
+Определение изменений: 100% (195633/195633), готово.
+Подмодуль «components/asio/asio» (https://github.com/espressif/asio.git) зарегистрирован по пути «components/asio/asio»
+Подмодуль «components/bootloader/subproject/components/micro-ecc/micro-ecc» (https://github.com/kmackay/micro-ecc.git) зарегистрирован по пути «components/bootloader/subproject/components/micro-ecc/micro-ecc»
+Подмодуль «components/bt/controller/lib_esp32» (https://github.com/espressif/esp32-bt-lib.git) зарегистрирован по пути «components/bt/controller/lib_esp32»
+Подмодуль «components/bt/controller/lib_esp32c3_family» (https://github.com/espressif/esp32c3-bt-lib.git) зарегистрирован по пути «components/bt/controller/lib_esp32c3_family»
+Подмодуль «components/bt/host/nimble/nimble» (https://github.com/espressif/esp-nimble.git) зарегистрирован по пути «components/bt/host/nimble/nimble»
+Подмодуль «components/cbor/tinycbor» (https://github.com/intel/tinycbor.git) зарегистрирован по пути «components/cbor/tinycbor»
+Подмодуль «components/cmock/CMock» (https://github.com/ThrowTheSwitch/CMock.git) зарегистрирован по пути «components/cmock/CMock»
+Подмодуль «components/coap/libcoap» (https://github.com/obgm/libcoap.git) зарегистрирован по пути «components/coap/libcoap»
+Подмодуль «components/esp_phy/lib» (https://github.com/espressif/esp-phy-lib.git) зарегистрирован по пути «components/esp_phy/lib»
+Подмодуль «components/esp_wifi/lib» (https://github.com/espressif/esp32-wifi-lib.git) зарегистрирован по пути «components/esp_wifi/lib»
+Подмодуль «components/esptool_py/esptool» (https://github.com/espressif/esptool.git) зарегистрирован по пути «components/esptool_py/esptool»
+Подмодуль «components/expat/expat» (https://github.com/libexpat/libexpat.git) зарегистрирован по пути «components/expat/expat»
+Подмодуль «components/ieee802154/lib» (https://github.com/espressif/esp-ieee802154-lib.git) зарегистрирован по пути «components/ieee802154/lib»
+Подмодуль «components/json/cJSON» (https://github.com/DaveGamble/cJSON.git) зарегистрирован по пути «components/json/cJSON»
+Подмодуль «components/libsodium/libsodium» (https://github.com/jedisct1/libsodium.git) зарегистрирован по пути «components/libsodium/libsodium»
+Подмодуль «components/lwip/lwip» (https://github.com/espressif/esp-lwip.git) зарегистрирован по пути «components/lwip/lwip»
+Подмодуль «components/mbedtls/mbedtls» (https://github.com/espressif/mbedtls.git) зарегистрирован по пути «components/mbedtls/mbedtls»
+Подмодуль «components/mqtt/esp-mqtt» (https://github.com/espressif/esp-mqtt.git) зарегистрирован по пути «components/mqtt/esp-mqtt»
+Подмодуль «components/nghttp/nghttp2» (https://github.com/nghttp2/nghttp2.git) зарегистрирован по пути «components/nghttp/nghttp2»
+Подмодуль «components/openthread/lib» (https://github.com/espressif/esp-thread-lib.git) зарегистрирован по пути «components/openthread/lib»
+Подмодуль «components/openthread/openthread» (https://github.com/espressif/openthread.git) зарегистрирован по пути «components/openthread/openthread»
+Подмодуль «components/protobuf-c/protobuf-c» (https://github.com/protobuf-c/protobuf-c.git) зарегистрирован по пути «components/protobuf-c/protobuf-c»
+Подмодуль «components/spiffs/spiffs» (https://github.com/pellepl/spiffs.git) зарегистрирован по пути «components/spiffs/spiffs»
+Подмодуль «components/tinyusb/tinyusb» (https://github.com/espressif/tinyusb.git) зарегистрирован по пути «components/tinyusb/tinyusb»
+Подмодуль «components/unity/unity» (https://github.com/ThrowTheSwitch/Unity.git) зарегистрирован по пути «components/unity/unity»
+Подмодуль «examples/build_system/cmake/import_lib/main/lib/tinyxml2» (https://github.com/leethomason/tinyxml2.git) зарегистрирован по пути «examples/build_system/cmake/import_lib/main/lib/tinyxml2»
+Подмодуль «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib» (https://github.com/espressif/esp-cryptoauthlib.git) зарегистрирован по пути «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»
+Клонирование в «/home/denis/espressif/esp-idf/components/asio/asio»…
+remote: Enumerating objects: 48394, done.
+remote: Counting objects: 100% (15239/15239), done.
+remote: Compressing objects: 100% (1324/1324), done.
+remote: Total 48394 (delta 14813), reused 13915 (delta 13915), pack-reused 33155
+Получение объектов: 100% (48394/48394), 15.06 МиБ | 4.98 МиБ/с, готово.
+Определение изменений: 100% (33905/33905), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc»…
+remote: Enumerating objects: 1143, done.
+remote: Counting objects: 100% (48/48), done.
+remote: Compressing objects: 100% (37/37), done.
+remote: Total 1143 (delta 21), reused 28 (delta 9), pack-reused 1095
+Получение объектов: 100% (1143/1143), 687.07 КиБ | 3.15 МиБ/с, готово.
+Определение изменений: 100% (664/664), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/bt/controller/lib_esp32»…
+remote: Enumerating objects: 1547, done.
+remote: Counting objects: 100% (667/667), done.
+remote: Compressing objects: 100% (363/363), done.
+remote: Total 1547 (delta 427), reused 525 (delta 285), pack-reused 880
+Получение объектов: 100% (1547/1547), 6.13 МиБ | 8.86 МиБ/с, готово.
+Определение изменений: 100% (1025/1025), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/bt/controller/lib_esp32c3_family»…
+remote: Enumerating objects: 107, done.
+remote: Counting objects: 100% (107/107), done.
+remote: Compressing objects: 100% (69/69), done.
+remote: Total 107 (delta 46), reused 86 (delta 25), pack-reused 0
+Получение объектов: 100% (107/107), 383.46 КиБ | 2.61 МиБ/с, готово.
+Определение изменений: 100% (46/46), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/bt/host/nimble/nimble»…
+remote: Enumerating objects: 40824, done.
+remote: Counting objects: 100% (381/381), done.
+remote: Compressing objects: 100% (142/142), done.
+remote: Total 40824 (delta 263), reused 337 (delta 234), pack-reused 40443
+Получение объектов: 100% (40824/40824), 11.90 МиБ | 5.10 МиБ/с, готово.
+Определение изменений: 100% (24991/24991), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/cbor/tinycbor»…
+remote: Enumerating objects: 2797, done.
+remote: Counting objects: 100% (27/27), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 2797 (delta 12), reused 17 (delta 8), pack-reused 2770
+Получение объектов: 100% (2797/2797), 1.30 МиБ | 4.06 МиБ/с, готово.
+Определение изменений: 100% (1888/1888), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock»…
+remote: Enumerating objects: 5719, done.
+remote: Counting objects: 100% (108/108), done.
+remote: Compressing objects: 100% (73/73), done.
+remote: Total 5719 (delta 52), reused 61 (delta 25), pack-reused 5611
+Получение объектов: 100% (5719/5719), 3.60 МиБ | 7.66 МиБ/с, готово.
+Определение изменений: 100% (3881/3881), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/coap/libcoap»…
+remote: Enumerating objects: 12280, done.
+remote: Counting objects: 100% (1351/1351), done.
+remote: Compressing objects: 100% (457/457), done.
+remote: Total 12280 (delta 883), reused 1196 (delta 838), pack-reused 10929
+Получение объектов: 100% (12280/12280), 5.47 МиБ | 1.82 МиБ/с, готово.
+Определение изменений: 100% (8693/8693), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/esp_phy/lib»…
+remote: Enumerating objects: 45, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (38/38), done.
+remote: Total 45 (delta 9), reused 42 (delta 6), pack-reused 0
+Получение объектов: 100% (45/45), 687.79 КиБ | 3.26 МиБ/с, готово.
+Определение изменений: 100% (9/9), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/esp_wifi/lib»…
+remote: Enumerating objects: 15144, done.
+remote: Counting objects: 100% (2889/2889), done.
+remote: Compressing objects: 100% (589/589), done.
+remote: Total 15144 (delta 2330), reused 2857 (delta 2300), pack-reused 12255
+Получение объектов: 100% (15144/15144), 174.32 МиБ | 10.31 МиБ/с, готово.
+Определение изменений: 100% (12385/12385), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/esptool_py/esptool»…
+remote: Enumerating objects: 3410, done.
+remote: Counting objects: 100% (447/447), done.
+remote: Compressing objects: 100% (248/248), done.
+remote: Total 3410 (delta 268), reused 338 (delta 197), pack-reused 2963
+Получение объектов: 100% (3410/3410), 10.72 МиБ | 8.17 МиБ/с, готово.
+Определение изменений: 100% (2138/2138), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/expat/expat»…
+remote: Enumerating objects: 17563, done.
+remote: Counting objects: 100% (873/873), done.
+remote: Compressing objects: 100% (334/334), done.
+remote: Total 17563 (delta 591), reused 762 (delta 532), pack-reused 16690
+Получение объектов: 100% (17563/17563), 14.44 МиБ | 10.06 МиБ/с, готово.
+Определение изменений: 100% (13067/13067), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/ieee802154/lib»…
+remote: Enumerating objects: 22, done.
+remote: Counting objects: 100% (22/22), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 22 (delta 6), reused 20 (delta 4), pack-reused 0
+Получение объектов: 100% (22/22), 54.74 КиБ | 637.00 КиБ/с, готово.
+Определение изменений: 100% (6/6), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/json/cJSON»…
+remote: Enumerating objects: 4498, done.
+remote: Counting objects: 100% (16/16), done.
+remote: Compressing objects: 100% (16/16), done.
+remote: Total 4498 (delta 4), reused 7 (delta 0), pack-reused 4482
+Получение объектов: 100% (4498/4498), 2.46 МиБ | 5.63 МиБ/с, готово.
+Определение изменений: 100% (2987/2987), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/libsodium/libsodium»…
+remote: Enumerating objects: 32905, done.
+remote: Counting objects: 100% (512/512), done.
+remote: Compressing objects: 100% (266/266), done.
+remote: Total 32905 (delta 260), reused 448 (delta 235), pack-reused 32393
+Получение объектов: 100% (32905/32905), 8.66 МиБ | 8.68 МиБ/с, готово.
+Определение изменений: 100% (19517/19517), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/lwip/lwip»…
+remote: Enumerating objects: 50119, done.
+remote: Counting objects: 100% (153/153), done.
+remote: Compressing objects: 100% (101/101), done.
+remote: Total 50119 (delta 90), reused 92 (delta 51), pack-reused 49966
+Получение объектов: 100% (50119/50119), 9.93 МиБ | 2.37 МиБ/с, готово.
+Определение изменений: 100% (37831/37831), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/mbedtls/mbedtls»…
+remote: Enumerating objects: 77211, done.
+remote: Total 77211 (delta 0), reused 0 (delta 0), pack-reused 77211
+Получение объектов: 100% (77211/77211), 34.92 МиБ | 10.61 МиБ/с, готово.
+Определение изменений: 100% (59488/59488), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/mqtt/esp-mqtt»…
+remote: Enumerating objects: 2558, done.
+remote: Counting objects: 100% (268/268), done.
+remote: Compressing objects: 100% (148/148), done.
+remote: Total 2558 (delta 147), reused 234 (delta 115), pack-reused 2290
+Получение объектов: 100% (2558/2558), 1.53 МиБ | 2.22 МиБ/с, готово.
+Определение изменений: 100% (1378/1378), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2»…
+remote: Enumerating objects: 41726, done.
+remote: Counting objects: 100% (1000/1000), done.
+remote: Compressing objects: 100% (372/372), done.
+remote: Total 41726 (delta 652), reused 941 (delta 624), pack-reused 40726
+Получение объектов: 100% (41726/41726), 34.54 МиБ | 10.62 МиБ/с, готово.
+Определение изменений: 100% (30992/30992), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/openthread/lib»…
+remote: Enumerating objects: 143, done.
+remote: Counting objects: 100% (143/143), done.
+remote: Compressing objects: 100% (78/78), done.
+remote: Total 143 (delta 74), reused 127 (delta 58), pack-reused 0
+Получение объектов: 100% (143/143), 2.61 МиБ | 6.33 МиБ/с, готово.
+Определение изменений: 100% (74/74), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/openthread/openthread»…
+remote: Enumerating objects: 83554, done.
+remote: Counting objects: 100% (63/63), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 83554 (delta 24), reused 34 (delta 24), pack-reused 83491
+Получение объектов: 100% (83554/83554), 82.49 МиБ | 10.79 МиБ/с, готово.
+Определение изменений: 100% (65311/65311), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/protobuf-c/protobuf-c»…
+remote: Enumerating objects: 3650, done.
+remote: Counting objects: 100% (117/117), done.
+remote: Compressing objects: 100% (81/81), done.
+remote: Total 3650 (delta 59), reused 71 (delta 31), pack-reused 3533
+Получение объектов: 100% (3650/3650), 1.49 МиБ | 5.43 МиБ/с, готово.
+Определение изменений: 100% (2326/2326), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/spiffs/spiffs»…
+remote: Enumerating objects: 1502, done.
+remote: Counting objects: 100% (19/19), done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 1502 (delta 7), reused 12 (delta 5), pack-reused 1483
+Получение объектов: 100% (1502/1502), 1.06 МиБ | 4.06 МиБ/с, готово.
+Определение изменений: 100% (1042/1042), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/tinyusb/tinyusb»…
+remote: Enumerating objects: 49097, done.
+remote: Counting objects: 100% (1406/1406), done.
+remote: Compressing objects: 100% (657/657), done.
+remote: Total 49097 (delta 757), reused 1246 (delta 702), pack-reused 47691
+Получение объектов: 100% (49097/49097), 26.63 МиБ | 9.65 МиБ/с, готово.
+Определение изменений: 100% (32400/32400), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/unity/unity»…
+remote: Enumerating objects: 5865, done.
+remote: Counting objects: 100% (88/88), done.
+remote: Compressing objects: 100% (56/56), done.
+remote: Total 5865 (delta 43), reused 69 (delta 32), pack-reused 5777
+Получение объектов: 100% (5865/5865), 6.62 МиБ | 3.29 МиБ/с, готово.
+Определение изменений: 100% (3627/3627), готово.
+Клонирование в «/home/denis/espressif/esp-idf/examples/build_system/cmake/import_lib/main/lib/tinyxml2»…
+remote: Enumerating objects: 4456, done.
+remote: Counting objects: 100% (303/303), done.
+remote: Compressing objects: 100% (145/145), done.
+remote: Total 4456 (delta 229), reused 188 (delta 158), pack-reused 4153
+Получение объектов: 100% (4456/4456), 3.20 МиБ | 7.08 МиБ/с, готово.
+Определение изменений: 100% (2961/2961), готово.
+Клонирование в «/home/denis/espressif/esp-idf/examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»…
+remote: Enumerating objects: 596, done.
+remote: Counting objects: 100% (596/596), done.
+remote: Compressing objects: 100% (303/303), done.
+remote: Total 596 (delta 325), reused 553 (delta 282), pack-reused 0
+Получение объектов: 100% (596/596), 905.33 КиБ | 4.31 МиБ/с, готово.
+Определение изменений: 100% (325/325), готово.
+Подмодуль по пути «components/asio/asio»: забрано состояние «f31694c9f1746ba189a4bcae2e34db15135ddb22»
+Подмодуль по пути «components/bootloader/subproject/components/micro-ecc/micro-ecc»: забрано состояние «d037ec89546fad14b5c4d5456c2e23a71e554966»
+Подмодуль по пути «components/bt/controller/lib_esp32»: забрано состояние «fb49791b7c1a8a35f06e68124c90022667b4cff1»
+Подмодуль по пути «components/bt/controller/lib_esp32c3_family»: забрано состояние «9ca8afd50afde57958a67fca65847edc52f7d91c»
+Подмодуль по пути «components/bt/host/nimble/nimble»: забрано состояние «aef55bbf636ed580d4d6408a5c2e75d1f70a875e»
+Подмодуль по пути «components/cbor/tinycbor»: забрано состояние «7c349dbb6b8d76db39383b226d3ebdf59b8ab37d»
+Подмодуль по пути «components/cmock/CMock»: забрано состояние «eeecc49ce8af123cf8ad40efdb9673e37b56230f»
+Подмодуль «vendor/c_exception» (https://github.com/throwtheswitch/cexception.git) зарегистрирован по пути «components/cmock/CMock/vendor/c_exception»
+Подмодуль «vendor/unity» (https://github.com/throwtheswitch/unity.git) зарегистрирован по пути «components/cmock/CMock/vendor/unity»
+Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock/vendor/c_exception»…
+remote: Enumerating objects: 326, done.
+remote: Counting objects: 100% (61/61), done.
+remote: Compressing objects: 100% (47/47), done.
+remote: Total 326 (delta 23), reused 34 (delta 9), pack-reused 265
+Получение объектов: 100% (326/326), 547.04 КиБ | 2.85 МиБ/с, готово.
+Определение изменений: 100% (150/150), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock/vendor/unity»…
+remote: Enumerating objects: 5865, done.
+remote: Counting objects: 100% (88/88), done.
+remote: Compressing objects: 100% (56/56), done.
+remote: Total 5865 (delta 43), reused 69 (delta 32), pack-reused 5777
+Получение объектов: 100% (5865/5865), 6.62 МиБ | 8.79 МиБ/с, готово.
+Определение изменений: 100% (3627/3627), готово.
+Подмодуль по пути «components/cmock/CMock/vendor/c_exception»: забрано состояние «71b47be7c950f1bf5f7e5303779fa99a16224bb6»
+Подмодуль по пути «components/cmock/CMock/vendor/unity»: забрано состояние «cf949f45ca6d172a177b00da21310607b97bc7a7»
+Подмодуль по пути «components/coap/libcoap»: забрано состояние «98954eb30a2e728e172a6cd29430ae5bc999b585»
+Подмодуль «ext/tinydtls» (https://github.com/eclipse/tinydtls.git) зарегистрирован по пути «components/coap/libcoap/ext/tinydtls»
+Клонирование в «/home/denis/espressif/esp-idf/components/coap/libcoap/ext/tinydtls»…
+remote: Enumerating objects: 3360, done.
+remote: Counting objects: 100% (789/789), done.
+remote: Compressing objects: 100% (120/120), done.
+remote: Total 3360 (delta 686), reused 670 (delta 669), pack-reused 2571
+Получение объектов: 100% (3360/3360), 987.54 КиБ | 802.00 КиБ/с, готово.
+Определение изменений: 100% (2397/2397), готово.
+Подмодуль по пути «components/coap/libcoap/ext/tinydtls»: забрано состояние «7f8c86e501e690301630029fa9bae22424adf618»
+Подмодуль по пути «components/esp_phy/lib»: забрано состояние «8b1137c35cc3d2b1085e7f857c2530efb115d3a3»
+Подмодуль по пути «components/esp_wifi/lib»: забрано состояние «492bb8b01b6ccff1e830b52c7b15d8c3d90101c6»
+Подмодуль по пути «components/esptool_py/esptool»: забрано состояние «9876dfe58353f01c873e1543dd0654c5b04314a4»
+Подмодуль по пути «components/expat/expat»: забрано состояние «a28238bdeebc087071777001245df1876a11f5ee»
+Подмодуль по пути «components/ieee802154/lib»: забрано состояние «efbc05d641040253567e825dae53731da595c7b5»
+Подмодуль по пути «components/json/cJSON»: забрано состояние «d2735278ed1c2e4556f53a7a782063b31331dbf7»
+Подмодуль по пути «components/libsodium/libsodium»: забрано состояние «4f5e89fa84ce1d178a6765b8b46f2b6f91216677»
+Подмодуль по пути «components/lwip/lwip»: забрано состояние «2195f7416fb3136831babf3e96c027a73075bd4f»
+Подмодуль по пути «components/mbedtls/mbedtls»: забрано состояние «6465247f67167518b8813ae2faaf422704e4b1a3»
+Подмодуль по пути «components/mqtt/esp-mqtt»: забрано состояние «f10321a53b53a146ee299cfecc320b89c0cf6611»
+Подмодуль по пути «components/nghttp/nghttp2»: забрано состояние «8f7b008b158e12de0e58247afd170f127dbb6456»
+Подмодуль «third-party/mruby» (https://github.com/mruby/mruby) зарегистрирован по пути «components/nghttp/nghttp2/third-party/mruby»
+Подмодуль «third-party/neverbleed» (https://github.com/tatsuhiro-t/neverbleed.git) зарегистрирован по пути «components/nghttp/nghttp2/third-party/neverbleed»
+Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2/third-party/mruby»…
+remote: Enumerating objects: 65288, done.
+remote: Counting objects: 100% (865/865), done.
+remote: Compressing objects: 100% (342/342), done.
+remote: Total 65288 (delta 484), reused 835 (delta 480), pack-reused 64423
+Получение объектов: 100% (65288/65288), 17.60 МиБ | 2.67 МиБ/с, готово.
+Определение изменений: 100% (40872/40872), готово.
+Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2/third-party/neverbleed»…
+remote: Enumerating objects: 234, done.
+remote: Total 234 (delta 0), reused 0 (delta 0), pack-reused 234
+Получение объектов: 100% (234/234), 83.16 КиБ | 915.00 КиБ/с, готово.
+Определение изменений: 100% (144/144), готово.
+Подмодуль по пути «components/nghttp/nghttp2/third-party/mruby»: забрано состояние «7c91efc1ffda769a5f1a872c646c82b00698f1b8»
+Подмодуль по пути «components/nghttp/nghttp2/third-party/neverbleed»: забрано состояние «b967ca054f48a36f82d8fcdd32e54ec5144f2751»
+Подмодуль по пути «components/openthread/lib»: забрано состояние «105f3610d2258d7a7dd1c72f5f1adea89077c6cc»
+Подмодуль по пути «components/openthread/openthread»: забрано состояние «a662c32eb074cc624bf344f810f65f8637a89552»
+Подмодуль по пути «components/protobuf-c/protobuf-c»: забрано состояние «dac1a65feac4ad72f612aab99f487056fbcf5c1a»
+Подмодуль по пути «components/spiffs/spiffs»: забрано состояние «f5e26c4e933189593a71c6b82cda381a7b21e41c»
+Подмодуль по пути «components/tinyusb/tinyusb»: забрано состояние «c4badd394eda18199c0196ed0be1e2d635f0a5f6»
+Подмодуль по пути «components/unity/unity»: забрано состояние «7d2bf62b7e6afaf38153041a9d53c21aeeca9a25»
+Подмодуль по пути «examples/build_system/cmake/import_lib/main/lib/tinyxml2»: забрано состояние «7e8e249990ec491ec15990cf95b6d871a66cf64a»
+Подмодуль по пути «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»: забрано состояние «bb672b0437485fc7420add178299631692b15ac3»
+<<<
+3. Если закачка прошла хорошо, запускаем установку набора инструментов
 
-перейти в него и скачать репозиторий *esp-idf*: 
+```console
+cd ~/espressif/esp-idf/
+./install.sh
+```
 
-```git clone https://github.com/espressif/esp-idf.git --recursive```
+Если всё правильно установлено, начнётся скачивание инструментария:
+<<<
 
-4. Перейти в каталог *~/espressif/esp-idf*:
-
-```cd ~/espressif/esp-idf```
-
-и запустить установку набора инструментов -- tollchain
-
-```./install.sh```
-
-Если всё правильно установлено, начнётся скачивание инструментария.
-
-5. После завершения скачивания, запустить настройку программного окружения (для каждого открытого терминала запускается отдельно)
+>>>
+1. После завершения скачивания, запустить настройку программного окружения (для каждого открытого терминала запускается отдельно)
 
 ```. ./export.hs```
 
