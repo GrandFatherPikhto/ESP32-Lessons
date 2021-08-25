@@ -29,8 +29,8 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="60??", MODE="0666
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 ```
-    2.  Перезапускаем службу **udev** ```sudo systemctl restart udev.service```
-    3.  Перечитываем правила **udev**: ```sudo udevadm control --reload-rules```
+   2.  Перезапускаем службу **udev** ```sudo systemctl restart udev.service```
+   3.  Перечитываем правила **udev**: ```sudo udevadm control --reload-rules```
 
 3. <div id="clone"></div>Создадим какой-нибудь каталог, куда будем складывать фреймворки *~/espressif*. Дело в том, что есть, как минимум, три фреймворка, которые, возможно Вы будете использовать. [ESP-IDF](https://github.com/espressif/esp-idf) — Espressif IoT Development Framework, [ESP-ADF](https://github.com/espressif/esp-adf) — Espressif Audio Development Framework, [ESP-MDF](https://github.com/espressif/esp-mdf) — Espressif Mesh Development Framework. Устраивать в корневом домашнем каталоге зоопарк из фреймворков не очень хочется. Итак, создали каталог, перешли в него и вызвали ```git``` с ключём *--recursive*, чтобы скачать все "подлинкованные" в репозитории дополнительные проекты. Не забываем про ключ **--recursive**. Он нужен для того, чтобы сказать все «подлинкованные» проекты, которые использует фреймворк.
 
