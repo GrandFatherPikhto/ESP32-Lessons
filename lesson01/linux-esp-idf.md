@@ -18,7 +18,7 @@ sudo apt install git-all python3.9 ninja-build cmake
 
 Проверим, есть ли алиас или мягкая ссылка ```python```. Обычно, если python установлен, то 3.x версия, которая вызывается командой ```python3```. Если нельзя вызвать ```python```, можно cделать мягкую ссылку ```ln -sf /usr/bin/python3.9 ~/.local/bin/python``` или ```alias python=/usr/bin/python3```. Если делаем ссылко,важно делать именно мягкую ссылку, поскольку файл жёсткой ссылки будет искать сопутствующие необходимые библиотеки в том же каталоге, откуда он запущен.  ```python``` нужен потому, что плагины **idf-eclipse-plugin** и **idf-vscode-plugin** требуют для работы именно возможность вызова ```python```, не ```python3```, ```python3.9``` и т.д.
 
-2.  Теперь, настроим **udev** — управление устройствами для новых версий ядра Linux. Логинимся под суперюзером: ```sudo su``` <div id="udev"></div>
+2.  Настроим **udev** — управление устройствами для новых версий ядра Linux. Логинимся под суперюзером: ```sudo su``` <div id="udev"></div>
     1. Копируем файл **40-dfuse.rules** в ```cp ./40-dfuse.rule /etc/udev/rules.d/```. Или его можно создать при помощи ```vim /etc/udev/rules.d && vim 40-dfuse.rules``` или ```nano /etc/udev/rules.d && vim 40-dfuse.rules``` или какого-то другого консольного редактора и скопируем туда правила доступа для устройств.
 
 Файл ```/etc/udev/rules.d/40-dfuse```
@@ -29,8 +29,8 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="60??", MODE="0666
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
 ```
-   2.  Перезапускаем службу **udev** ```sudo systemctl restart udev.service```
-   3.  Перечитываем правила **udev**: ```sudo udevadm control --reload-rules```
+    2.  Перезапускаем службу **udev** ```sudo systemctl restart udev.service```
+    3.  Перечитываем правила **udev**: ```sudo udevadm control --reload-rules```
 
 3. <div id="clone"></div>Создадим какой-нибудь каталог, куда будем складывать фреймворки *~/espressif*. Дело в том, что есть, как минимум, три фреймворка, которые, возможно Вы будете использовать. [ESP-IDF](https://github.com/espressif/esp-idf) — Espressif IoT Development Framework, [ESP-ADF](https://github.com/espressif/esp-adf) — Espressif Audio Development Framework, [ESP-MDF](https://github.com/espressif/esp-mdf) — Espressif Mesh Development Framework. Устраивать в корневом домашнем каталоге зоопарк из фреймворков не очень хочется. Итак, создали каталог, перешли в него и вызвали ```git``` с ключём *--recursive*, чтобы скачать все "подлинкованные" в репозитории дополнительные проекты. Не забываем про ключ **--recursive**. Он нужен для того, чтобы сказать все «подлинкованные» проекты, которые использует фреймворк.
 
