@@ -1045,7 +1045,7 @@ windir=C:\WINDOWS
 C:\Users\grand\espressif\esp-idf>
 </details>
 
-5. <div id="shortcut"></div>Теперь, можно даже создать ярлыки для запуска терминала с подготовленными переменными окружения esp-idf. Открываем в проводнике ```%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe```. Правой кнопкой мыши вызываем «Создать ярлык». В свойствах ярлыка добавляем: *"%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe" -noexit -ExecutionPolicy Bypass -File %USERPROFILE%\espressif\esp-idf\export.ps1*. При желании можно поставить [иконку с логотипом Espressif](./files/images/esp-logo/esp-logo.ico)
+5. <div id="shortcut"></div>Теперь, можно даже создать ярлыки для запуска терминала с подготовленными переменными окружения esp-idf. Открываем в проводнике ```%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe```. Правой кнопкой мыши вызываем «Создать ярлык». В свойствах ярлыка добавляем: *"%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe" -noexit -ExecutionPolicy Bypass -File %USERPROFILE%\espressif\esp-idf\export.ps1*. При желании можно поставить [иконку с логотипом Espressif](https://github.com/GrandFatherPikhto/ESP32-Lessons/blob/main/lesson01/files/images/esp-logo/esp-logo.ico)
 И не забудьте установить какой-нибудь рабочий каталог, в котором будем работать. Например, *%USERPROFILE%\esp32* (не забудьте создать соответствующий каталог)
 
 ![Настройка ярлыка для PowerShell среды esp-idf](./files/images/windows_create_link.png)
