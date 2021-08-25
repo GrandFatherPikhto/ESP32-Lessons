@@ -1003,13 +1003,13 @@ _=/usr/bin/env
    Существенны здесь изменения в **Path** ()
    И переменные 
 
-   IDF_PATH=${HOME}/espressif/esp-idf — Путь к фреймворку **esp-idf**
+   IDF_PATH=~/espressif/esp-idf — Путь к фреймворку **esp-idf**
 
-   IDF_TOOLS_PATH=${HOME}/.espressif — Путь к инструментарию (toolchain), необходимому для сборки проектов **esp-idf**
+   IDF_TOOLS_PATH=~/.espressif — Путь к инструментарию (toolchain), необходимому для сборки проектов **esp-idf**
 
-   IDF_TOOLS_EXPORT_CMD=${HOME}/espressif/esp-idf/export.sh — Скрипт экспорта переменных окружения **esp-idf**
+   IDF_TOOLS_EXPORT_CMD=~/espressif/esp-idf/export.sh — Скрипт экспорта переменных окружения **esp-idf**
 
-   IDF_TOOLS_INSTALL_CMD=${HOME}/espressif/esp-idf/install.sh — Скрипт для установки инструментария фреймворка **esp-idf**
+   IDF_TOOLS_INSTALL_CMD=~/espressif/esp-idf/install.sh — Скрипт для установки инструментария фреймворка **esp-idf**
 
 Второй, немного более сложный. Гораздо короче вызвать алиас ```idfexp``` из любого пути в терминале, чем каждый раз набирать ```~/espressif/esp-idf/install.sh```. Для этого нужно, скажем, создать файл конфигурации переменных окружения и для создания алиаса ```idfexp```. Проверить работу ```~/.idfrc``` можно при помощи команды ```source ~/.idfrc```. Cкрипт ```~/.idfrc``` создаёт переменные окружения *ESP_IDF* — путь к фреймворкам *esp-idf*, *esp-adf*, *esp-mdf* (ADF, MDF создаются, если эти фреймворки установлены). Файл можно взять [отсюда](./files/.idfrc) или просто скопировать из текста ниже:
 
