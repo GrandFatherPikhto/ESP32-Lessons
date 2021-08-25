@@ -2,21 +2,21 @@
 
 Executing action: flash
 
-Running ninja in directory /home/denis/Lessons/esp32/lesson01/hello_world/build
+Running ninja in directory ~Lessons/esp32/lesson01/hello_world/build
 
 Executing "ninja flash"...
 
-[1/5] cd /home/denis/Lessons/esp32/lesson01/hello_world/build/esp-idf/esptool_py && /home/denis/.espressif/python_env..._world/build/partition_table/partition-table.bin /home/denis/Lessons/esp32/lesson01/hello_world/build/hello-world.bin
+[1/5] cd ~Lessons/esp32/lesson01/hello_world/build/esp-idf/esptool_py && ~.espressif/python_env..._world/build/partition_table/partition-table.bin ~Lessons/esp32/lesson01/hello_world/build/hello-world.bin
 
 hello-world.bin binary size 0x28eb0 bytes. Smallest app partition is 0x100000 bytes. 0xd7150 bytes (84%) free.
 
 [2/5] Performing build step for 'bootloader'
 
-[1/1] cd /home/denis/Lessons/esp32/lesson01/hello_world/build/bootloader/esp-idf/esptool_py && /home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python /home/denis/espressif/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/denis/Lessons/esp32/lesson01/hello_world/build/bootloader/bootloader.bin
+[1/1] cd ~Lessons/esp32/lesson01/hello_world/build/bootloader/esp-idf/esptool_py && ~.espressif/python_env/idf4.4_py3.9_env/bin/python ~espressif/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 ~Lessons/esp32/lesson01/hello_world/build/bootloader/bootloader.bin
 
 Bootloader binary size 0x6330 bytes. 0xcd0 bytes (13%) free.
 
-[2/3] cd /home/denis/espressif/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/denis/espressif/esp...essons/esp32/lesson01/hello_world/build" -P /home/denis/espressif/esp-idf/components/esptool_py/run_serial_tool.cmake
+[2/3] cd ~espressif/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="~espressif/esp...essons/esp32/lesson01/hello_world/build" -P ~espressif/esp-idf/components/esptool_py/run_serial_tool.cmake
 
 esptool.py esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 hello-world.bin 0x8000 partition_table/partition-table.bin
 

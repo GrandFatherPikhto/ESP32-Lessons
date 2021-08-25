@@ -113,7 +113,7 @@ remote: Total 265284 (delta 1993), reused 3378 (delta 1860), pack-reused 261412
 
 Подмодуль «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib» (https://github.com/espressif/esp-cryptoauthlib.git) зарегистрирован по пути «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/asio/asio»…
+Клонирование в «~espressif/esp-idf/components/asio/asio»…
 
 remote: Enumerating objects: 48394, done.
 
@@ -127,7 +127,7 @@ remote: Total 48394 (delta 14813), reused 13915 (delta 13915), pack-reused 33155
 
 Определение изменений: 100% (33905/33905), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc»…
+Клонирование в «~espressif/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc»…
 
 remote: Enumerating objects: 1143, done.
 
@@ -141,7 +141,7 @@ remote: Total 1143 (delta 21), reused 28 (delta 9), pack-reused 1095
 
 Определение изменений: 100% (664/664), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bt/controller/lib_esp32»…
+Клонирование в «~espressif/esp-idf/components/bt/controller/lib_esp32»…
 
 remote: Enumerating objects: 1547, done.
 
@@ -155,7 +155,7 @@ remote: Total 1547 (delta 427), reused 525 (delta 285), pack-reused 880
 
 Определение изменений: 100% (1025/1025), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bt/controller/lib_esp32c3_family»…
+Клонирование в «~espressif/esp-idf/components/bt/controller/lib_esp32c3_family»…
 
 remote: Enumerating objects: 107, done.
 
@@ -169,7 +169,7 @@ remote: Total 107 (delta 46), reused 86 (delta 25), pack-reused 0
 
 Определение изменений: 100% (46/46), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bt/host/nimble/nimble»…
+Клонирование в «~espressif/esp-idf/components/bt/host/nimble/nimble»…
 
 remote: Enumerating objects: 40824, done.
 
@@ -183,7 +183,7 @@ remote: Total 40824 (delta 261), reused 338 (delta 234), pack-reused 40444
 
 Определение изменений: 100% (24989/24989), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cbor/tinycbor»…
+Клонирование в «~espressif/esp-idf/components/cbor/tinycbor»…
 
 remote: Enumerating objects: 2797, done.
 
@@ -197,7 +197,7 @@ remote: Total 2797 (delta 12), reused 17 (delta 8), pack-reused 2770
 
 Определение изменений: 100% (1888/1888), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock»…
+Клонирование в «~espressif/esp-idf/components/cmock/CMock»…
 
 remote: Enumerating objects: 5719, done.
 
@@ -211,7 +211,7 @@ remote: Total 5719 (delta 52), reused 61 (delta 25), pack-reused 5611
 
 Определение изменений: 100% (3881/3881), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/coap/libcoap»…
+Клонирование в «~espressif/esp-idf/components/coap/libcoap»…
 
 remote: Enumerating objects: 12280, done.
 
@@ -225,7 +225,7 @@ remote: Total 12280 (delta 888), reused 1218 (delta 853), pack-reused 10929
 
 Определение изменений: 100% (8697/8697), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/esp_phy/lib»…
+Клонирование в «~espressif/esp-idf/components/esp_phy/lib»…
 
 remote: Enumerating objects: 45, done.
 
@@ -239,7 +239,7 @@ remote: Total 45 (delta 9), reused 42 (delta 6), pack-reused 0
 
 Определение изменений: 100% (9/9), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/esp_wifi/lib»…
+Клонирование в «~espressif/esp-idf/components/esp_wifi/lib»…
 
 remote: Enumerating objects: 15182, done.
 
@@ -253,7 +253,7 @@ remote: Total 15182 (delta 2362), reused 2892 (delta 2329), pack-reused 12255
 
 Определение изменений: 100% (12417/12417), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/esptool_py/esptool»…
+Клонирование в «~espressif/esp-idf/components/esptool_py/esptool»…
 
 remote: Enumerating objects: 3410, done.
 
@@ -267,7 +267,7 @@ remote: Total 3410 (delta 268), reused 338 (delta 197), pack-reused 2963
 
 Определение изменений: 100% (2139/2139), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/expat/expat»…
+Клонирование в «~espressif/esp-idf/components/expat/expat»…
 
 remote: Enumerating objects: 17563, done.
 
@@ -281,7 +281,7 @@ remote: Total 17563 (delta 733), reused 935 (delta 672), pack-reused 16500
 
 Определение изменений: 100% (13077/13077), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/ieee802154/lib»…
+Клонирование в «~espressif/esp-idf/components/ieee802154/lib»…
 
 remote: Enumerating objects: 22, done.
 
@@ -295,7 +295,7 @@ remote: Total 22 (delta 6), reused 20 (delta 4), pack-reused 0
 
 Определение изменений: 100% (6/6), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/json/cJSON»…
+Клонирование в «~espressif/esp-idf/components/json/cJSON»…
 
 remote: Enumerating objects: 4498, done.
 
@@ -309,7 +309,7 @@ remote: Total 4498 (delta 4), reused 7 (delta 0), pack-reused 4482
 
 Определение изменений: 100% (2987/2987), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/libsodium/libsodium»…
+Клонирование в «~espressif/esp-idf/components/libsodium/libsodium»…
 
 remote: Enumerating objects: 32905, done.
 
@@ -323,7 +323,7 @@ remote: Total 32905 (delta 260), reused 448 (delta 235), pack-reused 32393
 
 Определение изменений: 100% (19517/19517), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/lwip/lwip»…
+Клонирование в «~espressif/esp-idf/components/lwip/lwip»…
 
 remote: Enumerating objects: 50119, done.
 
@@ -337,7 +337,7 @@ remote: Total 50119 (delta 90), reused 92 (delta 51), pack-reused 49966
 
 Определение изменений: 100% (37831/37831), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/mbedtls/mbedtls»…
+Клонирование в «~espressif/esp-idf/components/mbedtls/mbedtls»…
 
 remote: Enumerating objects: 77211, done.
 
@@ -347,7 +347,7 @@ remote: Total 77211 (delta 0), reused 0 (delta 0), pack-reused 77211
 
 Определение изменений: 100% (59486/59486), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/mqtt/esp-mqtt»…
+Клонирование в «~espressif/esp-idf/components/mqtt/esp-mqtt»…
 
 remote: Enumerating objects: 2558, done.
 
@@ -361,7 +361,7 @@ remote: Total 2558 (delta 147), reused 234 (delta 115), pack-reused 2290
 
 Определение изменений: 100% (1378/1378), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2»…
+Клонирование в «~espressif/esp-idf/components/nghttp/nghttp2»…
 
 remote: Enumerating objects: 41726, done.
 
@@ -375,7 +375,7 @@ remote: Total 41726 (delta 652), reused 941 (delta 624), pack-reused 40726
 
 Определение изменений: 100% (30992/30992), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/openthread/lib»…
+Клонирование в «~espressif/esp-idf/components/openthread/lib»…
 
 remote: Enumerating objects: 143, done.
 
@@ -389,7 +389,7 @@ remote: Total 143 (delta 74), reused 127 (delta 58), pack-reused 0
 
 Определение изменений: 100% (74/74), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/openthread/openthread»…
+Клонирование в «~espressif/esp-idf/components/openthread/openthread»…
 
 remote: Enumerating objects: 83554, done.
 
@@ -403,7 +403,7 @@ remote: Total 83554 (delta 24), reused 34 (delta 24), pack-reused 83491
 
 Определение изменений: 100% (65311/65311), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/protobuf-c/protobuf-c»…
+Клонирование в «~espressif/esp-idf/components/protobuf-c/protobuf-c»…
 
 remote: Enumerating objects: 3650, done.
 
@@ -417,7 +417,7 @@ remote: Total 3650 (delta 59), reused 71 (delta 31), pack-reused 3533
 
 Определение изменений: 100% (2326/2326), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/spiffs/spiffs»…
+Клонирование в «~espressif/esp-idf/components/spiffs/spiffs»…
 
 remote: Enumerating objects: 1502, done.
 
@@ -431,7 +431,7 @@ remote: Total 1502 (delta 7), reused 12 (delta 5), pack-reused 1483
 
 Определение изменений: 100% (1042/1042), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/tinyusb/tinyusb»…
+Клонирование в «~espressif/esp-idf/components/tinyusb/tinyusb»…
 
 remote: Enumerating objects: 49097, done.
 
@@ -445,7 +445,7 @@ remote: Total 49097 (delta 759), reused 1254 (delta 721), pack-reused 47691
 
 Определение изменений: 100% (32404/32404), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/unity/unity»…
+Клонирование в «~espressif/esp-idf/components/unity/unity»…
 
 remote: Enumerating objects: 5865, done.
 
@@ -459,7 +459,7 @@ remote: Total 5865 (delta 43), reused 69 (delta 32), pack-reused 5777
 
 Определение изменений: 100% (3627/3627), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/examples/build_system/cmake/import_lib/main/lib/tinyxml2»…
+Клонирование в «~espressif/esp-idf/examples/build_system/cmake/import_lib/main/lib/tinyxml2»…
 
 remote: Enumerating objects: 4456, done.
 
@@ -473,7 +473,7 @@ remote: Total 4456 (delta 229), reused 188 (delta 158), pack-reused 4153
 
 Определение изменений: 100% (2961/2961), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»…
+Клонирование в «~espressif/esp-idf/examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»…
 
 remote: Enumerating objects: 596, done.
 
@@ -505,7 +505,7 @@ remote: Total 596 (delta 325), reused 553 (delta 282), pack-reused 0
 
 Подмодуль «vendor/unity» (https://github.com/throwtheswitch/unity.git) зарегистрирован по пути «components/cmock/CMock/vendor/unity»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock/vendor/c_exception»…
+Клонирование в «~espressif/esp-idf/components/cmock/CMock/vendor/c_exception»…
 
 remote: Enumerating objects: 326, done.
 
@@ -519,7 +519,7 @@ remote: Total 326 (delta 23), reused 34 (delta 9), pack-reused 265
 
 Определение изменений: 100% (150/150), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock/vendor/unity»…
+Клонирование в «~espressif/esp-idf/components/cmock/CMock/vendor/unity»…
 
 remote: Enumerating objects: 5865, done.
 
@@ -541,7 +541,7 @@ remote: Total 5865 (delta 43), reused 69 (delta 32), pack-reused 5777
 
 Подмодуль «ext/tinydtls» (https://github.com/eclipse/tinydtls.git) зарегистрирован по пути «components/coap/libcoap/ext/tinydtls»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/coap/libcoap/ext/tinydtls»…
+Клонирование в «~espressif/esp-idf/components/coap/libcoap/ext/tinydtls»…
 
 remote: Enumerating objects: 3360, done.
 
@@ -583,7 +583,7 @@ remote: Total 3360 (delta 686), reused 670 (delta 669), pack-reused 2571
 
 Подмодуль «third-party/neverbleed» (https://github.com/tatsuhiro-t/neverbleed.git) зарегистрирован по пути «components/nghttp/nghttp2/third-party/neverbleed»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2/third-party/mruby»…
+Клонирование в «~espressif/esp-idf/components/nghttp/nghttp2/third-party/mruby»…
 
 remote: Enumerating objects: 65288, done.
 
@@ -597,7 +597,7 @@ remote: Total 65288 (delta 484), reused 835 (delta 480), pack-reused 64423
 
 Определение изменений: 100% (40872/40872), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2/third-party/neverbleed»…
+Клонирование в «~espressif/esp-idf/components/nghttp/nghttp2/third-party/neverbleed»…
 
 remote: Enumerating objects: 234, done.
 
@@ -654,11 +654,11 @@ Python 3.9.6
 
 Installing ESP-IDF tools
 
-WARNING: File /home/denis/.espressif/idf-env.json was not found.
+WARNING: File ~.espressif/idf-env.json was not found.
 
-Creating /home/denis/.espressif/idf-env.json
+Creating ~.espressif/idf-env.json
 
-WARNING: File /home/denis/.espressif/idf-env.json can not be created.
+WARNING: File ~.espressif/idf-env.json can not be created.
 
 Selected targets are:
 
@@ -666,81 +666,81 @@ Installing tools: xtensa-esp32-elf, xtensa-esp32s2-elf, xtensa-esp32s3-elf, risc
 
 Installing xtensa-esp32-elf@esp-2021r1-8.4.0
 
-Downloading xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+Downloading xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/dist/xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0
+Extracting ~.espressif/dist/xtensa-esp32-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0
 
 Installing xtensa-esp32s2-elf@esp-2021r1-8.4.0
 
-Downloading xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+Downloading xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/dist/xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0
+Extracting ~.espressif/dist/xtensa-esp32s2-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0
 
 Installing xtensa-esp32s3-elf@esp-2021r1-8.4.0
 
-Downloading xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+Downloading xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/dist/xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0
+Extracting ~.espressif/dist/xtensa-esp32s3-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0
 
 Installing riscv32-esp-elf@esp-2021r1-8.4.0
 
-Downloading riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/dist/riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
+Downloading riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/dist/riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to /home/denis/.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0
+Extracting ~.espressif/dist/riscv32-esp-elf-gcc8_4_0-esp-2021r1-linux-amd64.tar.gz to ~.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0
 
 Installing esp32ulp-elf@2.28.51-esp-20191205
 
-Downloading binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/dist/binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz.tmp
+Downloading binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to ~.espressif/dist/binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205
+Extracting ~.espressif/dist/binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to ~.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205
 
 Installing esp32s2ulp-elf@2.28.51-esp-20191205
 
-Downloading binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/dist/binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz.tmp
+Downloading binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to ~.espressif/dist/binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to /home/denis/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205
+Extracting ~.espressif/dist/binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz to ~.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205
 
 Installing openocd-esp32@v0.10.0-esp32-20210721
 
-Downloading openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz to /home/denis/.espressif/dist/openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz.tmp
+Downloading openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz to ~.espressif/dist/openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz.tmp
 
 Done
 
-Extracting /home/denis/.espressif/dist/openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz to /home/denis/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721
+Extracting ~.espressif/dist/openocd-esp32-linux64-0.10.0-esp32-20210721.tar.gz to ~.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721
 
 Installing Python environment and packages
 
-Creating a new Python environment in /home/denis/.espressif/python_env/idf4.4_py3.9_env
+Creating a new Python environment in ~.espressif/python_env/idf4.4_py3.9_env
 
 created virtual environment CPython3.9.6.final.0-64 in 1715ms
 
-  creator CPython3Posix(dest=/home/denis/.espressif/python_env/idf4.4_py3.9_env, clear=False, no_vcs_ignore=False, global=False)
+  creator CPython3Posix(dest=~.espressif/python_env/idf4.4_py3.9_env, clear=False, no_vcs_ignore=False, global=False)
 
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/denis/.local/share/virtualenv)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=~.local/share/virtualenv)
 
     added seed packages: pip==21.2.3, setuptools==57.4.0, wheel==0.37.0
 
   activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator
 
-Installing Python packages from /home/denis/espressif/esp-idf/requirements.txt
+Installing Python packages from ~espressif/esp-idf/requirements.txt
 
 Looking in indexes: https://pypi.org/simple, https://dl.espressif.com/pypi
 
 Ignoring None: markers 'sys_platform == "win32"' don't match your environment
 
-Requirement already satisfied: setuptools>=21 in /home/denis/.espressif/python_env/idf4.4_py3.9_env/lib/python3.9/site-packages (from -r /home/denis/espressif/esp-idf/requirements.txt (line 4)) (57.4.0)
+Requirement already satisfied: setuptools>=21 in ~.espressif/python_env/idf4.4_py3.9_env/lib/python3.9/site-packages (from -r ~espressif/esp-idf/requirements.txt (line 4)) (57.4.0)
 
 Collecting click>=7.0
 
@@ -864,7 +864,7 @@ Successfully installed Flask-0.12.5 Flask-Compress-1.10.1 Flask-SocketIO-2.9.6 J
 
 WARNING: You are using pip version 21.2.3; however, version 21.2.4 is available.
 
-You should consider upgrading via the '/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python -m pip install --upgrade pip' command.
+You should consider upgrading via the '~.espressif/python_env/idf4.4_py3.9_env/bin/python -m pip install --upgrade pip' command.
 
 All done! You can now run:
 
@@ -904,15 +904,15 @@ Python 3.9.6
 
 Adding ESP-IDF tools to PATH...
 
-Using Python interpreter in /home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python
+Using Python interpreter in ~.espressif/python_env/idf4.4_py3.9_env/bin/python
 
 Checking if Python packages are up to date...
 
-Python requirements from /home/denis/espressif/esp-idf/requirements.txt are satisfied.
+Python requirements from ~espressif/esp-idf/requirements.txt are satisfied.
 
 Updated PATH variable:
 
-  /home/denis/espressif/esp-idf/components/esptool_py/esptool:/home/denis/espressif/esp-idf/components/espcoredump:/home/denis/espressif/esp-idf/components/partition_table:/home/denis/espressif/esp-idf/components/app_update:/home/denis/espressif/esp-idf/components/esptool_py/esptool:/home/denis/espressif/esp-idf/components/espcoredump:/home/denis/espressif/esp-idf/components/partition_table:/home/denis/espressif/esp-idf/components/app_update:/home/denis/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin:/home/denis/.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0/xtensa-esp32s2-elf/bin:/home/denis/.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0/xtensa-esp32s3-elf/bin:/home/denis/.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0/riscv32-esp-elf/bin:/home/denis/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:/home/denis/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:/home/denis/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721/openocd-esp32/bin:/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin:/home/denis/espressif/esp-idf/tools:/home/denis/.nvm/versions/node/v15.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin://home/denis/.local/bin
+  ~espressif/esp-idf/components/esptool_py/esptool:~espressif/esp-idf/components/espcoredump:~espressif/esp-idf/components/partition_table:~espressif/esp-idf/components/app_update:~espressif/esp-idf/components/esptool_py/esptool:~espressif/esp-idf/components/espcoredump:~espressif/esp-idf/components/partition_table:~espressif/esp-idf/components/app_update:~.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin:~.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0/xtensa-esp32s2-elf/bin:~.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0/xtensa-esp32s3-elf/bin:~.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0/riscv32-esp-elf/bin:~.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:~.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:~.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721/openocd-esp32/bin:~.espressif/python_env/idf4.4_py3.9_env/bin:~espressif/esp-idf/tools:~.nvm/versions/node/v15.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/~.local/bin
 
 Done! You can now compile ESP-IDF projects.
 
@@ -1087,15 +1087,15 @@ Python 3.9.6
 
 Adding ESP-IDF tools to PATH...
 
-Using Python interpreter in /home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python
+Using Python interpreter in ~.espressif/python_env/idf4.4_py3.9_env/bin/python
 
 Checking if Python packages are up to date...
 
-Python requirements from /home/denis/espressif/esp-idf/requirements.txt are satisfied.
+Python requirements from ~espressif/esp-idf/requirements.txt are satisfied.
 
 Updated PATH variable:
 
-  /home/denis/espressif/esp-idf/components/esptool_py/esptool:/home/denis/espressif/esp-idf/components/espcoredump:/home/denis/espressif/esp-idf/components/partition_table:/home/denis/espressif/esp-idf/components/app_update:/home/denis/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin:/home/denis/.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0/xtensa-esp32s2-elf/bin:/home/denis/.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0/xtensa-esp32s3-elf/bin:/home/denis/.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0/riscv32-esp-elf/bin:/home/denis/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:/home/denis/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:/home/denis/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721/openocd-esp32/bin:/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin:/home/denis/espressif/esp-idf/tools:/home/denis/.nvm/versions/node/v15.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin://home/denis/.local/bin
+  ~espressif/esp-idf/components/esptool_py/esptool:~espressif/esp-idf/components/espcoredump:~espressif/esp-idf/components/partition_table:~espressif/esp-idf/components/app_update:~.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin:~.espressif/tools/xtensa-esp32s2-elf/esp-2021r1-8.4.0/xtensa-esp32s2-elf/bin:~.espressif/tools/xtensa-esp32s3-elf/esp-2021r1-8.4.0/xtensa-esp32s3-elf/bin:~.espressif/tools/riscv32-esp-elf/esp-2021r1-8.4.0/riscv32-esp-elf/bin:~.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:~.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:~.espressif/tools/openocd-esp32/v0.10.0-esp32-20210721/openocd-esp32/bin:~.espressif/python_env/idf4.4_py3.9_env/bin:~espressif/esp-idf/tools:~.nvm/versions/node/v15.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/~.local/bin
 
 Done! You can now compile ESP-IDF projects.
 
@@ -1255,21 +1255,21 @@ Commands:
 
 Executing action: flash
 
-Running ninja in directory /home/denis/Lessons/esp32/lesson01/hello_world/build
+Running ninja in directory ~Lessons/esp32/lesson01/hello_world/build
 
 Executing "ninja flash"...
 
-[1/5] cd /home/denis/Lessons/esp32/lesson01/hello_world/build/esp-idf/esptool_py && /home/denis/.espressif/python_env..._world/build/partition_table/partition-table.bin /home/denis/Lessons/esp32/lesson01/hello_world/build/hello-world.bin
+[1/5] cd ~Lessons/esp32/lesson01/hello_world/build/esp-idf/esptool_py && ~.espressif/python_env..._world/build/partition_table/partition-table.bin ~Lessons/esp32/lesson01/hello_world/build/hello-world.bin
 
 hello-world.bin binary size 0x28eb0 bytes. Smallest app partition is 0x100000 bytes. 0xd7150 bytes (84%) free.
 
 [2/5] Performing build step for 'bootloader'
 
-[1/1] cd /home/denis/Lessons/esp32/lesson01/hello_world/build/bootloader/esp-idf/esptool_py && /home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python /home/denis/espressif/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/denis/Lessons/esp32/lesson01/hello_world/build/bootloader/bootloader.bin
+[1/1] cd ~Lessons/esp32/lesson01/hello_world/build/bootloader/esp-idf/esptool_py && ~.espressif/python_env/idf4.4_py3.9_env/bin/python ~espressif/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 ~Lessons/esp32/lesson01/hello_world/build/bootloader/bootloader.bin
 
 Bootloader binary size 0x6330 bytes. 0xcd0 bytes (13%) free.
 
-[2/3] cd /home/denis/espressif/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/denis/espressif/esp...essons/esp32/lesson01/hello_world/build" -P /home/denis/espressif/esp-idf/components/esptool_py/run_serial_tool.cmake
+[2/3] cd ~espressif/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="~espressif/esp...essons/esp32/lesson01/hello_world/build" -P ~espressif/esp-idf/components/esptool_py/run_serial_tool.cmake
 
 esptool.py esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 hello-world.bin 0x8000 partition_table/partition-table.bin
 
@@ -1363,9 +1363,9 @@ idf.py monitor -p /dev/ttyUSB0
 
 Executing action: monitor
 
-Running idf_monitor in directory /home/denis/Programs/esp32/hello_world
+Running idf_monitor in directory ~Programs/esp32/hello_world
 
-Executing "/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python /home/denis/espressif/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/denis/Programs/esp32/hello_world/build/hello-world.elf -m '/home/denis/.espressif/python_env/idf4.4_py3.9_env/bin/python' '/home/denis/espressif/esp-idf/tools/idf.py'"...
+Executing "~.espressif/python_env/idf4.4_py3.9_env/bin/python ~espressif/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 ~Programs/esp32/hello_world/build/hello-world.elf -m '~.espressif/python_env/idf4.4_py3.9_env/bin/python' '~espressif/esp-idf/tools/idf.py'"...
 
 --- idf_monitor on /dev/ttyUSB0 115200 ---
 
@@ -1447,7 +1447,7 @@ I (198) cpu_start: Pro cpu up.
 
 I (198) cpu_start: Starting app cpu, entry point is 0x40080fc4
 
-0x40080fc4: call_start_cpu1 at /home/denis/espressif/esp-idf/components/esp_system/port/cpu_start.c:156
+0x40080fc4: call_start_cpu1 at ~espressif/esp-idf/components/esp_system/port/cpu_start.c:156
 
 
 

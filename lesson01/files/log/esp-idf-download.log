@@ -68,7 +68,7 @@ remote: Total 265284 (delta 1993), reused 3378 (delta 1860), pack-reused 261412
 
 Подмодуль «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib» (https://github.com/espressif/esp-cryptoauthlib.git) зарегистрирован по пути «examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/asio/asio»…
+Клонирование в «~espressif/esp-idf/components/asio/asio»…
 
 remote: Enumerating objects: 48394, done.
 
@@ -82,7 +82,7 @@ remote: Total 48394 (delta 14813), reused 13915 (delta 13915), pack-reused 33155
 
 Определение изменений: 100% (33905/33905), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc»…
+Клонирование в «~espressif/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc»…
 
 remote: Enumerating objects: 1143, done.
 
@@ -96,7 +96,7 @@ remote: Total 1143 (delta 21), reused 28 (delta 9), pack-reused 1095
 
 Определение изменений: 100% (664/664), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bt/controller/lib_esp32»…
+Клонирование в «~espressif/esp-idf/components/bt/controller/lib_esp32»…
 
 remote: Enumerating objects: 1547, done.
 
@@ -110,7 +110,7 @@ remote: Total 1547 (delta 427), reused 525 (delta 285), pack-reused 880
 
 Определение изменений: 100% (1025/1025), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bt/controller/lib_esp32c3_family»…
+Клонирование в «~espressif/esp-idf/components/bt/controller/lib_esp32c3_family»…
 
 remote: Enumerating objects: 107, done.
 
@@ -124,7 +124,7 @@ remote: Total 107 (delta 46), reused 86 (delta 25), pack-reused 0
 
 Определение изменений: 100% (46/46), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/bt/host/nimble/nimble»…
+Клонирование в «~espressif/esp-idf/components/bt/host/nimble/nimble»…
 
 remote: Enumerating objects: 40824, done.
 
@@ -138,7 +138,7 @@ remote: Total 40824 (delta 261), reused 338 (delta 234), pack-reused 40444
 
 Определение изменений: 100% (24989/24989), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cbor/tinycbor»…
+Клонирование в «~espressif/esp-idf/components/cbor/tinycbor»…
 
 remote: Enumerating objects: 2797, done.
 
@@ -152,7 +152,7 @@ remote: Total 2797 (delta 12), reused 17 (delta 8), pack-reused 2770
 
 Определение изменений: 100% (1888/1888), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock»…
+Клонирование в «~espressif/esp-idf/components/cmock/CMock»…
 
 remote: Enumerating objects: 5719, done.
 
@@ -166,7 +166,7 @@ remote: Total 5719 (delta 52), reused 61 (delta 25), pack-reused 5611
 
 Определение изменений: 100% (3881/3881), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/coap/libcoap»…
+Клонирование в «~espressif/esp-idf/components/coap/libcoap»…
 
 remote: Enumerating objects: 12280, done.
 
@@ -180,7 +180,7 @@ remote: Total 12280 (delta 888), reused 1218 (delta 853), pack-reused 10929
 
 Определение изменений: 100% (8697/8697), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/esp_phy/lib»…
+Клонирование в «~espressif/esp-idf/components/esp_phy/lib»…
 
 remote: Enumerating objects: 45, done.
 
@@ -194,7 +194,7 @@ remote: Total 45 (delta 9), reused 42 (delta 6), pack-reused 0
 
 Определение изменений: 100% (9/9), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/esp_wifi/lib»…
+Клонирование в «~espressif/esp-idf/components/esp_wifi/lib»…
 
 remote: Enumerating objects: 15182, done.
 
@@ -208,7 +208,7 @@ remote: Total 15182 (delta 2362), reused 2892 (delta 2329), pack-reused 12255
 
 Определение изменений: 100% (12417/12417), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/esptool_py/esptool»…
+Клонирование в «~espressif/esp-idf/components/esptool_py/esptool»…
 
 remote: Enumerating objects: 3410, done.
 
@@ -222,7 +222,7 @@ remote: Total 3410 (delta 268), reused 338 (delta 197), pack-reused 2963
 
 Определение изменений: 100% (2139/2139), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/expat/expat»…
+Клонирование в «~espressif/esp-idf/components/expat/expat»…
 
 remote: Enumerating objects: 17563, done.
 
@@ -236,7 +236,7 @@ remote: Total 17563 (delta 733), reused 935 (delta 672), pack-reused 16500
 
 Определение изменений: 100% (13077/13077), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/ieee802154/lib»…
+Клонирование в «~espressif/esp-idf/components/ieee802154/lib»…
 
 remote: Enumerating objects: 22, done.
 
@@ -250,7 +250,7 @@ remote: Total 22 (delta 6), reused 20 (delta 4), pack-reused 0
 
 Определение изменений: 100% (6/6), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/json/cJSON»…
+Клонирование в «~espressif/esp-idf/components/json/cJSON»…
 
 remote: Enumerating objects: 4498, done.
 
@@ -264,7 +264,7 @@ remote: Total 4498 (delta 4), reused 7 (delta 0), pack-reused 4482
 
 Определение изменений: 100% (2987/2987), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/libsodium/libsodium»…
+Клонирование в «~espressif/esp-idf/components/libsodium/libsodium»…
 
 remote: Enumerating objects: 32905, done.
 
@@ -278,7 +278,7 @@ remote: Total 32905 (delta 260), reused 448 (delta 235), pack-reused 32393
 
 Определение изменений: 100% (19517/19517), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/lwip/lwip»…
+Клонирование в «~espressif/esp-idf/components/lwip/lwip»…
 
 remote: Enumerating objects: 50119, done.
 
@@ -292,7 +292,7 @@ remote: Total 50119 (delta 90), reused 92 (delta 51), pack-reused 49966
 
 Определение изменений: 100% (37831/37831), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/mbedtls/mbedtls»…
+Клонирование в «~espressif/esp-idf/components/mbedtls/mbedtls»…
 
 remote: Enumerating objects: 77211, done.
 
@@ -302,7 +302,7 @@ remote: Total 77211 (delta 0), reused 0 (delta 0), pack-reused 77211
 
 Определение изменений: 100% (59486/59486), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/mqtt/esp-mqtt»…
+Клонирование в «~espressif/esp-idf/components/mqtt/esp-mqtt»…
 
 remote: Enumerating objects: 2558, done.
 
@@ -316,7 +316,7 @@ remote: Total 2558 (delta 147), reused 234 (delta 115), pack-reused 2290
 
 Определение изменений: 100% (1378/1378), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2»…
+Клонирование в «~espressif/esp-idf/components/nghttp/nghttp2»…
 
 remote: Enumerating objects: 41726, done.
 
@@ -330,7 +330,7 @@ remote: Total 41726 (delta 652), reused 941 (delta 624), pack-reused 40726
 
 Определение изменений: 100% (30992/30992), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/openthread/lib»…
+Клонирование в «~espressif/esp-idf/components/openthread/lib»…
 
 remote: Enumerating objects: 143, done.
 
@@ -344,7 +344,7 @@ remote: Total 143 (delta 74), reused 127 (delta 58), pack-reused 0
 
 Определение изменений: 100% (74/74), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/openthread/openthread»…
+Клонирование в «~espressif/esp-idf/components/openthread/openthread»…
 
 remote: Enumerating objects: 83554, done.
 
@@ -358,7 +358,7 @@ remote: Total 83554 (delta 24), reused 34 (delta 24), pack-reused 83491
 
 Определение изменений: 100% (65311/65311), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/protobuf-c/protobuf-c»…
+Клонирование в «~espressif/esp-idf/components/protobuf-c/protobuf-c»…
 
 remote: Enumerating objects: 3650, done.
 
@@ -372,7 +372,7 @@ remote: Total 3650 (delta 59), reused 71 (delta 31), pack-reused 3533
 
 Определение изменений: 100% (2326/2326), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/spiffs/spiffs»…
+Клонирование в «~espressif/esp-idf/components/spiffs/spiffs»…
 
 remote: Enumerating objects: 1502, done.
 
@@ -386,7 +386,7 @@ remote: Total 1502 (delta 7), reused 12 (delta 5), pack-reused 1483
 
 Определение изменений: 100% (1042/1042), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/tinyusb/tinyusb»…
+Клонирование в «~espressif/esp-idf/components/tinyusb/tinyusb»…
 
 remote: Enumerating objects: 49097, done.
 
@@ -400,7 +400,7 @@ remote: Total 49097 (delta 759), reused 1254 (delta 721), pack-reused 47691
 
 Определение изменений: 100% (32404/32404), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/unity/unity»…
+Клонирование в «~espressif/esp-idf/components/unity/unity»…
 
 remote: Enumerating objects: 5865, done.
 
@@ -414,7 +414,7 @@ remote: Total 5865 (delta 43), reused 69 (delta 32), pack-reused 5777
 
 Определение изменений: 100% (3627/3627), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/examples/build_system/cmake/import_lib/main/lib/tinyxml2»…
+Клонирование в «~espressif/esp-idf/examples/build_system/cmake/import_lib/main/lib/tinyxml2»…
 
 remote: Enumerating objects: 4456, done.
 
@@ -428,7 +428,7 @@ remote: Total 4456 (delta 229), reused 188 (delta 158), pack-reused 4153
 
 Определение изменений: 100% (2961/2961), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»…
+Клонирование в «~espressif/esp-idf/examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib»…
 
 remote: Enumerating objects: 596, done.
 
@@ -460,7 +460,7 @@ remote: Total 596 (delta 325), reused 553 (delta 282), pack-reused 0
 
 Подмодуль «vendor/unity» (https://github.com/throwtheswitch/unity.git) зарегистрирован по пути «components/cmock/CMock/vendor/unity»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock/vendor/c_exception»…
+Клонирование в «~espressif/esp-idf/components/cmock/CMock/vendor/c_exception»…
 
 remote: Enumerating objects: 326, done.
 
@@ -474,7 +474,7 @@ remote: Total 326 (delta 23), reused 34 (delta 9), pack-reused 265
 
 Определение изменений: 100% (150/150), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/cmock/CMock/vendor/unity»…
+Клонирование в «~espressif/esp-idf/components/cmock/CMock/vendor/unity»…
 
 remote: Enumerating objects: 5865, done.
 
@@ -496,7 +496,7 @@ remote: Total 5865 (delta 43), reused 69 (delta 32), pack-reused 5777
 
 Подмодуль «ext/tinydtls» (https://github.com/eclipse/tinydtls.git) зарегистрирован по пути «components/coap/libcoap/ext/tinydtls»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/coap/libcoap/ext/tinydtls»…
+Клонирование в «~espressif/esp-idf/components/coap/libcoap/ext/tinydtls»…
 
 remote: Enumerating objects: 3360, done.
 
@@ -538,7 +538,7 @@ remote: Total 3360 (delta 686), reused 670 (delta 669), pack-reused 2571
 
 Подмодуль «third-party/neverbleed» (https://github.com/tatsuhiro-t/neverbleed.git) зарегистрирован по пути «components/nghttp/nghttp2/third-party/neverbleed»
 
-Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2/third-party/mruby»…
+Клонирование в «~espressif/esp-idf/components/nghttp/nghttp2/third-party/mruby»…
 
 remote: Enumerating objects: 65288, done.
 
@@ -552,7 +552,7 @@ remote: Total 65288 (delta 484), reused 835 (delta 480), pack-reused 64423
 
 Определение изменений: 100% (40872/40872), готово.
 
-Клонирование в «/home/denis/espressif/esp-idf/components/nghttp/nghttp2/third-party/neverbleed»…
+Клонирование в «~espressif/esp-idf/components/nghttp/nghttp2/third-party/neverbleed»…
 
 remote: Enumerating objects: 234, done.
 
