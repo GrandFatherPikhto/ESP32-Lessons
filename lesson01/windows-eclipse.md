@@ -8,7 +8,7 @@
 
 3. Запускаем установщик, если справа сверху в бургере появился восклицательный знак, обновляем установщик.
 
-![Установка Eclipse](./files/images/eclipse_installer.png)
+![Установка Eclipse](./files/images/eclipse_linux_installer_update.png)
 
 
 4. После обновления запускаем установку «Eclipse IDE for C/C++ Developers». В принципе, было бы неплохо создать ярлык eclipse на рабочем столе, потому, что локальный установщик *Eclipse* не создаёт в меню «Пуск» иконки для *Eclipse*. Обычно *Eclipse* устанавливается в %USERPROFILE\eclipse\cpp-latest-released\eclipse%. 

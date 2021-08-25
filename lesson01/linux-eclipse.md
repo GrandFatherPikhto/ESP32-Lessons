@@ -10,31 +10,31 @@
 
 4. Устанавливаем *Eclipse developing C/C++*
 
-![Установка Eclipse](./files/images/eclipse_installer.png)
+![Установка Eclipse](./files/images/eclipse_linux_installer_update.png)
 
 5. После запуска установленного *Eclipse*, идём в *Help->Market place*. В строке поиска выбираем **esp-idf**. Устанавливаем. Перезапускаем *Eclipse*. 
 
 
-![Установка Eclipse ESP-IDF](./files/images/eclipse_market_place.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_linux_marketplace.png)
 
 
 6. В меню *Help*, выбираем *Help->Download and configure ESP-IDF*. Далее, выбираем *Use an existing ESP-IDF directory from file system*. Указываем путь к установленному пакету **esp-idf**. В данном случае, это ```~/espressif/esp-idf```.
 
 
-![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_linux_select_install_esp_idf.png)
 
 
 7. Появится окошко с путями к **esp-idf**, **git**, **python**. Если какой-либо путь не «подхватился», добавьте его вручную, используя в консоли команду ```which```, например, ```which git```, ```which python``` и т.д.
 
 
 
-![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf_confirm.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_linux_select_esp_idf.png)
 
 
-![Установка Eclipse ESP-IDF](./files/images/eclipse_config_existing_esp_idf_paths.png)
+![Установка Eclipse ESP-IDF](./files/images/eclipse_linux_set_paths.png)
 
 
-8. После перезапуска выбираем *File->Project*. В диалоговом окне выбираем *Espressif->Espressif IDF Project*. *Next*. Если далее выбрать *«Next»*, появится окно с выбором шаблонного проекта из списка ```~/espressif/esp-idf/examples```. Самые простые проекты — «hello world», «blink», «sample_project». Можете выбрать любой.
+1. После перезапуска выбираем *File->Project*. В диалоговом окне выбираем *Espressif->Espressif IDF Project*. *Next*. Если далее выбрать *«Next»*, появится окно с выбором шаблонного проекта из списка ```~/espressif/esp-idf/examples```. Самые простые проекты — «hello world», «blink», «sample_project». Можете выбрать любой.
 
 
 ![Создание проекта ESP-IDF](./files/images/eclipse_new_esp_idf_project.png)
