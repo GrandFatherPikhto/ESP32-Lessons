@@ -803,14 +803,23 @@ You should consider upgrading via the 'C:\Users\grand\.espressif\python_env\idf4
 <details>
 <summary>Обновляем Python Virtual Environment</summary>
 C:\Users\grand\espressif\esp-idf>%USERPROFILE%\.espressif\python_env\idf4.4_py3.9_env\Scripts\python.exe -m pip install --upgrade pip
+
 Requirement already satisfied: pip in c:\users\grand\.espressif\python_env\idf4.4_py3.9_env\lib\site-packages (21.2.3)
+
 Collecting pip
+
   Using cached pip-21.2.4-py3-none-any.whl (1.6 MB)
+
 Installing collected packages: pip
+
   Attempting uninstall: pip
+
     Found existing installation: pip 21.2.3
+
     Uninstalling pip-21.2.3:
+
       Successfully uninstalled pip-21.2.3
+      
 Successfully installed pip-21.2.4
 </details>
 
