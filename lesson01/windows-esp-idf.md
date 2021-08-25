@@ -1,7 +1,7 @@
 [Назад](./README.md)
 
-- [Установка и настройка программ, необходимых для работы инструментария **esp-idf**](#install)
-- [Клонирование репозитория **esp-idf**](#clone)
+- [Установка и настройка программ, необходимых для работы инструментария esp-idf](#install)
+- [Клонирование репозитория esp-idf](#clone)
 - [Установка инструментария](#toolchain)
 - [Создание ярлыков запуска для cmd.exe и PowerShell](#shotcut)
 - [Копирование проекта 'hello_world', сборка, прошивка и мониторинг](#idf)
@@ -678,7 +678,7 @@ C:\Users\grand\espressif>
 По умолчанию *toolchain* установится в ```%USERPROFILE%\.espressif```
 
 <details>
-<summary>Журнал установки инструментария **esp-idf**</summary>
+<summary>Журнал установки инструментария esp-idf</summary>
 PS C:\Users\grand> cd $env:IDF_PATH
 
 PS C:\Users\grand\espressif\esp-idf> .\install.ps1
@@ -819,12 +819,12 @@ Installing collected packages: pip
     Uninstalling pip-21.2.3:
 
       Successfully uninstalled pip-21.2.3
-      
+
 Successfully installed pip-21.2.4
 </details>
 
 <details>
-<summary>Переменные окружения **esp-idf**</summary>
+<summary>Переменные окружения esp-idf</summary>
 PS C:\Users\grand\espressif\esp-idf> .\export.ps1
 
 Setting IDF_PATH: C:\Users\grand\espressif\esp-idf
@@ -937,7 +937,7 @@ Go to the project directory and run:
 </details>
 
 <details>
-<summary>Установленные переменные окружения **esp-idf**</summary>
+<summary>Установленные переменные окружения esp-idf</summary>
 C:\Users\grand\espressif\esp-idf>set
 
 ALLUSERSPROFILE=C:\ProgramData
@@ -1048,7 +1048,7 @@ C:\Users\grand\espressif\esp-idf>
 5. <div id="shortcut"></div>Теперь, можно даже создать ярлыки для запуска терминала с подготовленными переменными окружения esp-idf. Открываем в проводнике ```%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe```. Правой кнопкой мыши вызываем «Создать ярлык». В свойствах ярлыка добавляем: *"%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe" -noexit -ExecutionPolicy Bypass -File %USERPROFILE%\espressif\esp-idf\export.ps1*. При желании можно поставить [иконку с логотипом Espressif](./files/images/esp-logo/esp-logo.ico)
 И не забудьте установить какой-нибудь рабочий каталог, в котором будем работать. Например, *%USERPROFILE%\esp32* (не забудьте создать соответствующий каталог)
 
-![Настройка ярлыка для PowerShell среды **esp-idf**](./files/images/windows_create_link.png)
+![Настройка ярлыка для PowerShell среды esp-idf](./files/images/windows_create_link.png)
 
 Или тоже самое можно сделать для ```cmd.exe``` — %comspec% /k "%IDF_PATH%\export.bat". И, опять-таки, не забудьте установить путь к рабочему каталогу (Например, *%USERPROFILE%\esp32\*) и можете поменять иконку.
 
