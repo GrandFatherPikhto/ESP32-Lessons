@@ -78,12 +78,12 @@ We have found ESP-IDF version: 4.4 @/home/grandfatherpikhto/espressif/esp-idf an
 11. Пытаемся собрать проект. Иногда, после первого запуска случается так, что проект не собирается из-за того, что не хватает привилегий. С чем это связано, не знаю, но надо просто перезапустить *VSCode*
 
 
-![Сборка нового проекта ESP-IDF](./files/images/vscode_select_jtag_uart.png)
+![Сборка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_build.png)
 
 
 12. Запускаем сборку, прошивку и мониторинг проекта — **Ctrl+E D**. Обратите внимание: сверху может появиться выбор способа прошивки проекта: **UART/JTAG**. Выбираем **UART**.
 
-![Прошивка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_flash.png)
+![Прошивка нового проекта ESP-IDF](./files/images/vscode_select_jtag_uart.png)
 
 
 13. Если всё прошло удачно, запустится мониторинг проекта с отображений журнала сообщений от процессора **ESP32**, передаваемых через **USB**.

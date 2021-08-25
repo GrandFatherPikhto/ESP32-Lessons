@@ -15,7 +15,6 @@ IDF_TOOLS_PATH=%USERPROFILE%\.espressif\esp-idf
 IDF_PYTHON_ENV_PATH=%USERPROFILE%\.espressif\python_env\idf4.4_py3.9_env
 
 Нажмём на кнопку «Пуск» и вызовем «Настройки» (шестерёнка)
-
 ![Вызвать настройки переменных окружения пользователя](./files/images/options_user_environment_variables_01.png)
 
 В строке поиска вводим слово «переменных» и видим «Настройка переменных окружения пользователя». Кликаем. Добавляем нужные переменные. Проверяем, добавлены ли в **Path** ```%ProgramFiles/Git/bin```, ```%ProgramFiles%/Python39``` (Зависит от установленной версии **Python**)
@@ -73,12 +72,12 @@ C:\Users\grand\.espressif\python_env\idf4.4_py3.9_env
 11. Пытаемся собрать проект. Иногда, после первого запуска случается так, что проект не собирается из-за того, что не хватает привилегий. С чем это связано, не знаю, но надо просто перезапустить *VSCode*
 
 
-![Прошивка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_flash.png)
+![Сборка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_build.png)
 
 
 12. Запускаем сборку, прошивку и мониторинг проекта — **Ctrl+E D**. Обратите внимание: сверху может появиться выбор способа прошивки проекта: **UART/JTAG**. Выбираем **UART**.
 
-![Прошивка нового проекта ESP-IDF](./files/images/vscode_esp_idf_project_flash.png)
+![Прошивка нового проекта ESP-IDF](./files/images/vscode_select_jtag_uart.png)
 
 
 13. Если всё прошло удачно, запустится мониторинг проекта с отображений журнала сообщений от процессора **ESP32**, передаваемых через **USB**.
